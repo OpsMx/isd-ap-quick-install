@@ -8,23 +8,23 @@ metadata:
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: isd-ap-minio-update-prometheus-secret
+  name: isd-minio-update-prometheus-secret
   labels:
     app: minio-update-prometheus-secret
     chart: minio-8.0.9
-    release: isd-ap
+    release: isd
     heritage: Helm
 ---
 # Source: isdargo/charts/minio/templates/serviceaccount.yaml
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: "isd-ap-minio"
+  name: "isd-minio"
   namespace: "opsmx-autopilot"
   labels:
     app: minio
     chart: minio-8.0.9
-    release: "isd-ap"
+    release: "isd"
 ---
 # Source: isdargo/templates/autoconfigure-carin-and-agent/autoconfigserviceaccount.yaml
 apiVersion: v1
@@ -42,11 +42,11 @@ metadata:
 apiVersion: v1
 kind: Secret
 metadata:
-  name: isd-ap-minio
+  name: isd-minio
   labels:
     app: minio
     chart: minio-8.0.9
-    release: isd-ap
+    release: isd
     heritage: Helm
 type: Opaque
 data:
@@ -61,7 +61,7 @@ metadata:
   labels:
     app: openldap
     chart: openldap-1.2.3
-    release: isd-ap
+    release: isd
     heritage: Helm
 type: Opaque
 data:
@@ -72,11 +72,11 @@ data:
 apiVersion: v1
 kind: Secret
 metadata:
-  name: isd-ap-redis
+  name: isd-redis
   labels:
     app: redis
     chart: redis-10.5.3
-    release: "isd-ap"
+    release: "isd"
     heritage: "Helm"
 type: Opaque
 data:
@@ -107,7 +107,7 @@ metadata:
     app: oes
     component: carina
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
   name: oes-carina-config
 ---
@@ -152,7 +152,7 @@ metadata:
     app: oes
     component: auditclient
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
   name: oes-audit-client-config
 ---
@@ -201,7 +201,7 @@ metadata:
     app: oes
     component: auditservice
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
   name: oes-audit-service-config
 ---
@@ -248,7 +248,7 @@ stringData:
     #storage configuration
     storage.type =db_storage
     #storage.type =object_storage
-    #storage.endpoint=http://isd-ap-minio:9000
+    #storage.endpoint=http://isd-minio:9000
     #storage.accesskey = spinnakeradmin
     #storage.secretkey = spinnakeradmin
     #storage.region= us-east-1
@@ -266,7 +266,7 @@ metadata:
     app: oes
     component: autopilot
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
 ---
 # Source: isdargo/templates/oes-datascience/oes-datascience-secret.yaml
@@ -286,7 +286,7 @@ stringData:
        # Only accept True or False
     
     OBJECT_STORAGE:
-          ENDPOINT: http://isd-ap-minio:9000
+          ENDPOINT: http://isd-minio:9000
           BUCKET_NAME: autopilot
     POSTGRES:
           USERNAME: 'postgres'
@@ -369,7 +369,7 @@ stringData:
       mode: session
     google: {}
     redis:
-      connection: redis://:password@isd-ap-redis-master:6379
+      connection: redis://:password@isd-redis-master:6379
     server:
       session:
         timeoutInSeconds: 7200
@@ -409,7 +409,7 @@ metadata:
     app: oes
     component: gate
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
 ---
 # Source: isdargo/templates/oes-gate/oes-gate-secret.yaml
@@ -434,7 +434,7 @@ stringData:
         password: 'networks123'
     ldap.managerPassword: 'opsmxadmin123'
     redis:
-        connection: redis://:password@isd-ap-redis-master:6379
+        connection: redis://:password@isd-redis-master:6379
     #datasource.url: jdbc:postgresql://oes-db:5432/visibilitydb
     #postgres.password: 'networks123'
     #postgres.username: 'postgres'
@@ -511,7 +511,7 @@ metadata:
     app: oes
     component: platform
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
 ---
 # Source: isdargo/templates/oes-sapor/oes-sapor-secret.yaml
@@ -625,7 +625,7 @@ metadata:
     app: oes
     component: sapor
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
 ---
 # Source: isdargo/templates/oes-visibility/oes-visibility-secret.yaml
@@ -730,7 +730,7 @@ metadata:
     app: oes
     component: visibility
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
 ---
 # Source: isdargo/templates/secrets/bootstrap-secret.yaml
@@ -760,7 +760,7 @@ metadata:
   name: bootstrap
   labels:
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
 ---
 # Source: isdargo/templates/secrets/sapor-bootstrap-secret.yaml
@@ -792,7 +792,7 @@ metadata:
   name: sapor-bootstrap
   labels:
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
 ---
 # Source: isdargo/templates/secrets/secret.yaml
@@ -810,11 +810,11 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: isd-ap-minio
+  name: isd-minio
   labels:
     app: minio
     chart: minio-8.0.9
-    release: isd-ap
+    release: isd
     heritage: Helm
 data:
   initialize: |-
@@ -928,7 +928,7 @@ metadata:
   labels:
     app: openldap
     chart: openldap-1.2.3
-    release: isd-ap
+    release: isd
     heritage: Helm
 data:
   01-memberof.ldif: |-
@@ -1045,7 +1045,7 @@ metadata:
   labels:
     app: openldap
     chart: openldap-1.2.3
-    release: isd-ap
+    release: isd
     heritage: Helm
 data:
   LDAP_BACKEND: hdb
@@ -1059,12 +1059,12 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: isd-ap-redis
+  name: isd-redis
   labels:
     app: redis
     chart: redis-10.5.3
     heritage: Helm
-    release: isd-ap
+    release: isd
 data:
   redis.conf: |-
     # User-supplied configuration:
@@ -1086,12 +1086,12 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: isd-ap-redis-health
+  name: isd-redis-health
   labels:
     app: redis
     chart: redis-10.5.3
     heritage: Helm
-    release: isd-ap
+    release: isd
 data:
   ping_readiness_local.sh: |-
     response=$(
@@ -1173,6 +1173,7 @@ data:
     standardErrorCodesMapping.ISD-MustBeANumber-400-09 = ISD-MustBeANumber-400-09 : {0} - {1} must be a number : {2}
     standardErrorCodesMapping.ISD-InvalidURL-400-10 = ISD-InvalidURL-400-10 : {0} - {1} is invalid - {2}
     standardErrorCodesMapping.ISD-BadRequest-400-11 = ISD-BadRequest-400-11 : {0} - {1} {2}
+    standardErrorCodesMapping.ISD-EmptyKeyOrValue-400-12 = ISD-EmptyKeyOrValue-400-12 : {0} - {1} is missing !
     standardErrorCodesMapping.ISD-Unauthorized-401-01 = ISD-Unauthorized-401-01 : {0} - {1} not authorized. {2}.
     standardErrorCodesMapping.ISD-Unauthorized-401-02 = ISD-Unauthorized-401-02 : {0} - User group not found for user : {1}.
     standardErrorCodesMapping.ISD-NotAdmin-401-03 = ISD-NotAdmin-401-03 : {0} - {1} is not an admin !
@@ -1184,6 +1185,7 @@ data:
     standardErrorCodesMapping.ISD-NoData-404-02 = ISD-NoData-404-02 : {0} - No data found for {1}
     standardErrorCodesMapping.ISD-DoesNotExist-404-03 = ISD-DoesNotExist-404-03 : {0} - {1} does not exist {2}.
     standardErrorCodesMapping.ISD-IsNotFound-404-04 = ISD-IsNotFound-404-04 : {0} - {1} not found {2}.
+    standardErrorCodesMapping.ISD-Unavailable-404-05 = ISD-Unavailable-404-05 : {0} - {1} is unavailable.
     standardErrorCodesMapping.ISD-AlreadyExists-409-01 = ISD-AlreadyExists-409-01 : {0} - {1} already exists: {2}
     standardErrorCodesMapping.ISD-FailedToDelete-412-01 = ISD-FailedToDelete-412-01 : {0} - Unable to delete {1} as {1} is already in use !
     standardErrorCodesMapping.ISD-FailedToDeletePolicy-412-02 = ISD-FailedToDeletePolicy-412-02 : {0} - Unable to delete policy as it is already in use for {1} gate !
@@ -1238,7 +1240,7 @@ metadata:
     agent.opsmx.com/name: controller1
     agent.opsmx.com/role: controller
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
 data:
   configFile: |
@@ -1300,7 +1302,7 @@ metadata:
     app: oes
     component: dashboard
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
 ---
 # Source: isdargo/templates/oes-ui/oes-ui-configmap.yaml
@@ -1793,6 +1795,22 @@ data:
             "TOOLTIP": "Metric template for the verification run",
             "VALIDATION_MESSAGE": {}
           },
+          "LOG_BASELINE" :{
+            "TOOLTIP": "Filter keys values to collect log data for Baseline",
+            "VALIDATION_MESSAGE" :{}
+          },
+          "METRIC_BASELINE" :{
+            "TOOLTIP": "Filter keys values to collect metric data for Baseline ",
+            "VALIDATION_MESSAGE" :{}
+          },
+          "LOG_NEW_RELEASE" :{
+            "TOOLTIP": "Filter keys values to collect log data for New Release",
+            "VALIDATION_MESSAGE" :{}
+          },
+          "METRIC_NEW_RELEASE" :{
+            "TOOLTIP": "Filter keys values to collect metric data for New Release",
+            "VALIDATION_MESSAGE" :{}
+          },
           "LOG_BASELINE_START_TIME": {
             "TOOLTIP": "Start time of the canary analysis for Baseline",
             "VALIDATION_MESSAGE": {}
@@ -1862,7 +1880,7 @@ data:
             "VALIDATION_MESSAGE": {}
           },
           "INTERVAL_MINUTES": {
-            "TOOLTIP": "The Lifetime hours in minutes",
+            "TOOLTIP": "The duration of the interval in minutes",
             "VALIDATION_MESSAGE": {}
           },
           "REGULAR_EXPRESSION": {
@@ -4596,7 +4614,7 @@ metadata:
     app: oes
     component: ui
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
 ---
 # Source: isdargo/templates/oes-ui/oes-ui-nginxconf.yaml
@@ -4641,7 +4659,7 @@ data:
         include /etc/nginx/conf.d/*.conf;
   
         server {
-            listen       8080 default_server;
+            listen       8093 default_server;
             #listen       [::]:8080 default_server;
             server_name  _;
             root /var/www/html;
@@ -4654,7 +4672,7 @@ data:
             }
   
             location ^~ /application {
-              proxy_pass http://oes-ui:8080 ;
+              proxy_pass http://oes-ui:8093 ;
             }
   
             location ^~ /ui {
@@ -4676,18 +4694,18 @@ metadata:
     app: oes
     component: ui
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
 ---
 # Source: isdargo/charts/minio/templates/pvc.yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: isd-ap-minio
+  name: isd-minio
   labels:
     app: minio
     chart: minio-8.0.9
-    release: isd-ap
+    release: isd
     heritage: Helm
 spec:
   accessModes:
@@ -4704,7 +4722,7 @@ metadata:
   labels:
     app: openldap
     chart: openldap-1.2.3
-    release: isd-ap
+    release: isd
     heritage: Helm
 spec:
   accessModes:
@@ -4731,11 +4749,11 @@ subjects:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: isd-ap-minio-update-prometheus-secret
+  name: isd-minio-update-prometheus-secret
   labels:
     app: minio-update-prometheus-secret
     chart: minio-8.0.9
-    release: isd-ap
+    release: isd
     heritage: Helm
 rules:
   - apiGroups:
@@ -4748,7 +4766,7 @@ rules:
       - update
       - patch
     resourceNames:
-      - isd-ap-minio-prometheus
+      - isd-minio-prometheus
   - apiGroups:
       - ""
     resources:
@@ -4762,7 +4780,7 @@ rules:
     verbs:
       - get
     resourceNames:
-      - isd-ap-minio
+      - isd-minio
 ---
 # Source: isdargo/templates/forwarder/create-controller-secret.yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -4778,19 +4796,19 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: isd-ap-minio-update-prometheus-secret
+  name: isd-minio-update-prometheus-secret
   labels:
     app: minio-update-prometheus-secret
     chart: minio-8.0.9
-    release: isd-ap
+    release: isd
     heritage: Helm
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: isd-ap-minio-update-prometheus-secret
+  name: isd-minio-update-prometheus-secret
 subjects:
   - kind: ServiceAccount
-    name: isd-ap-minio-update-prometheus-secret
+    name: isd-minio-update-prometheus-secret
     namespace: "opsmx-autopilot"
 ---
 # Source: isdargo/templates/forwarder/create-controller-secret.yaml
@@ -4810,11 +4828,11 @@ roleRef:
 apiVersion: v1
 kind: Service
 metadata:
-  name: isd-ap-minio
+  name: isd-minio
   labels:
     app: minio
     chart: minio-8.0.9
-    release: isd-ap
+    release: isd
     heritage: Helm
 spec:
   type: ClusterIP
@@ -4825,7 +4843,7 @@ spec:
       targetPort: 9000
   selector:
     app: minio
-    release: isd-ap
+    release: isd
 ---
 # Source: isdargo/charts/openldap/templates/service.yaml
 apiVersion: v1
@@ -4835,7 +4853,7 @@ metadata:
   labels:
     app: openldap
     chart: openldap-1.2.3
-    release: isd-ap
+    release: isd
     heritage: Helm
 spec:
   ports:
@@ -4849,18 +4867,18 @@ spec:
       targetPort: ssl-ldap-port
   selector:
     app: openldap
-    release: isd-ap
+    release: isd
   type: ClusterIP
 ---
 # Source: isdargo/charts/redis/templates/headless-svc.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: isd-ap-redis-headless
+  name: isd-redis-headless
   labels:
     app: redis
     chart: redis-10.5.3
-    release: isd-ap
+    release: isd
     heritage: Helm
 spec:
   type: ClusterIP
@@ -4871,17 +4889,17 @@ spec:
     targetPort: redis
   selector:
     app: redis
-    release: isd-ap
+    release: isd
 ---
 # Source: isdargo/charts/redis/templates/redis-master-svc.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: isd-ap-redis-master
+  name: isd-redis-master
   labels:
     app: redis
     chart: redis-10.5.3
-    release: isd-ap
+    release: isd
     heritage: Helm
 spec:
   type: ClusterIP
@@ -4891,7 +4909,7 @@ spec:
     targetPort: redis
   selector:
     app: redis
-    release: isd-ap
+    release: isd
     role: master
 ---
 # Source: isdargo/templates/carina/service.yaml
@@ -4902,7 +4920,7 @@ metadata:
     app: oes
     component: carina
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
   name: oes-carina
 spec:
@@ -4925,7 +4943,7 @@ metadata:
     agent.opsmx.com/name: controller1
     agent.opsmx.com/role: controller
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
 spec:
   selector:
@@ -4951,7 +4969,7 @@ metadata:
     agent.opsmx.com/name: controller1
     agent.opsmx.com/role: controller
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
 spec:
   selector:
@@ -4970,7 +4988,7 @@ metadata:
     agent.opsmx.com/name: controller1
     agent.opsmx.com/role: controller
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
 spec:
   selector:
@@ -4989,7 +5007,7 @@ metadata:
     app: oes
     component: auditclient
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
   name: oes-audit-client
 spec:
@@ -5011,7 +5029,7 @@ metadata:
     app: oes
     component: auditservice
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
   name: oes-audit-service
 spec:
@@ -5033,7 +5051,7 @@ metadata:
     app: oes
     component: autopilot
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
   name: oes-autopilot
 spec:
@@ -5057,7 +5075,7 @@ metadata:
     app: oes
     component: dashboard
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
   name: oes-dashboard
 spec:
@@ -5079,7 +5097,7 @@ metadata:
     app: oes
     component: datascience
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
   name: oes-datascience
 spec:
@@ -5101,7 +5119,7 @@ metadata:
     app: oes
     component: db
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
   name: oes-db
 spec:
@@ -5123,7 +5141,7 @@ metadata:
     app: oes
     component: gate
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
   name: oes-gate
 spec:
@@ -5151,7 +5169,7 @@ metadata:
     app: oes
     component: platform
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
   name: oes-platform
 spec:
@@ -5173,7 +5191,7 @@ metadata:
     app: oes
     component: sapor
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
   name: oes-sapor
 spec:
@@ -5194,7 +5212,7 @@ metadata:
     app: oes
     component: ui
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
   name: oes-ui
 spec:
@@ -5202,10 +5220,10 @@ spec:
   ports:
   - name: "https"
     port: 443
-    targetPort: 8080
+    targetPort: 8093
   - name: "http"
-    port: 8080
-    targetPort: 8080
+    port: 8093
+    targetPort: 8093
   selector:
     app: oes
     component: ui
@@ -5218,7 +5236,7 @@ metadata:
     app: oes
     component: visibility
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
   name: oes-visibility
 spec:
@@ -5239,7 +5257,7 @@ metadata:
   name: opa
   labels:
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
 spec:
   selector:
@@ -5258,7 +5276,7 @@ metadata:
     app: oes
     component: rabbitmq
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
   name: rabbitmq-service
 spec:
@@ -5280,11 +5298,11 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: isd-ap-minio
+  name: isd-minio
   labels:
     app: minio
     chart: minio-8.0.9
-    release: isd-ap
+    release: isd
     heritage: Helm
 spec:
   strategy:
@@ -5295,18 +5313,18 @@ spec:
   selector:
     matchLabels:
       app: minio
-      release: isd-ap
+      release: isd
   template:
     metadata:
-      name: isd-ap-minio
+      name: isd-minio
       labels:
         app: minio
-        release: isd-ap
+        release: isd
       annotations:
-        checksum/secrets: 42906084e8f3b4cc999169af8557bd286a882ed69cccc7d4973e8b2205740363
-        checksum/config: 38299a635377107b7e6ac820aaace4f90733497784f23d051df16b627428ca2e
+        checksum/secrets: 0e7fab1c3058994997feaa92931063f8fc4c7f719d54fd3ef3459505a6a61533
+        checksum/config: 7a7ac5513fcd53ca17fde80ebf50780809224b63001a3969ca32fcaf1caf5999
     spec:
-      serviceAccountName: "isd-ap-minio"
+      serviceAccountName: "isd-minio"
       securityContext:
         runAsUser: 1000
         runAsGroup: 1000
@@ -5329,12 +5347,12 @@ spec:
             - name: MINIO_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
-                  name: isd-ap-minio
+                  name: isd-minio
                   key: accesskey
             - name: MINIO_SECRET_KEY
               valueFrom:
                 secretKeyRef:
-                  name: isd-ap-minio
+                  name: isd-minio
                   key: secretkey
           resources:
             requests:
@@ -5342,10 +5360,10 @@ spec:
       volumes:
         - name: export
           persistentVolumeClaim:
-            claimName: isd-ap-minio
+            claimName: isd-minio
         - name: minio-user
           secret:
-            secretName: isd-ap-minio
+            secretName: isd-minio
 ---
 # Source: isdargo/charts/openldap/templates/deployment.yaml
 apiVersion: apps/v1
@@ -5357,22 +5375,22 @@ metadata:
   labels:
     app: openldap
     chart: openldap-1.2.3
-    release: isd-ap
+    release: isd
     heritage: Helm
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: openldap
-      release: isd-ap
+      release: isd
   template:
     metadata:
       annotations:
-        checksum/configmap-env: 7f06506532710e288d6cf86d2570c6b80425757f9e55f49fdff542375e4287a8
-        checksum/configmap-customldif: 3ae63d5493190e4a5ab3806efb5785ce5b8eaf56cc845bc57640e5b5dc90abdd
+        checksum/configmap-env: 2481a3f2da612328f2b2cb57408d42232b8fb5b34861131e3172a9f3012a72bd
+        checksum/configmap-customldif: daeba1008b0179c030b3d1d9af1941bbb0f734b764bf7c19bd6dc15470d59211
       labels:
         app: openldap
-        release: isd-ap
+        release: isd
     spec:
       initContainers:
       - name: openldap-init-ldif
@@ -5453,7 +5471,7 @@ metadata:
     app: oes
     component: carina
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
   name: oes-carina
 spec:
@@ -5474,7 +5492,7 @@ spec:
         app: oes
         component: carina
         heritage: "Helm"
-        release: "isd-ap"
+        release: "isd"
         chart: "isdargo-4.1.1"
       annotations:
         checksum/secret: 3317d0843d09e8e86afa45102c110412f46f8d4715da5fdf1208733b21c1ff37
@@ -5531,7 +5549,7 @@ metadata:
     agent.opsmx.com/name: controller1
     agent.opsmx.com/role: controller
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
 spec:
   replicas: 1
@@ -5545,7 +5563,7 @@ spec:
         agent.opsmx.com/name: controller1
         agent.opsmx.com/role: controller
         heritage: "Helm"
-        release: "isd-ap"
+        release: "isd"
         chart: "isdargo-4.1.1"
       annotations:
         pullversion: "16"
@@ -5601,7 +5619,7 @@ spec:
           - key: "configFile"
             path: "config.yaml"
 ---
-# Source: isdargo/templates/oes-audit/oes-audit-client.yaml
+# Source: isdargo/templates/oes-audit/oes-auditclient-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -5609,7 +5627,7 @@ metadata:
     app: oes
     component: auditclient
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
   name: oes-audit-client
 spec:
@@ -5629,11 +5647,23 @@ spec:
         app: oes
         component: auditclient
         heritage: "Helm"
-        release: "isd-ap"
+        release: "isd"
         chart: "isdargo-4.1.1"
     spec:
+      initContainers:
+      - name: db-check
+        image: quay.io/opsmxpublic/pgchecker:v1
+        command:
+          - sh
+          - -c
+          - |
+            echo 'Waiting for OES-DB to become ready...'
+            until printf "." && nc -z -w 2 oes-db 5432; do
+               sleep 2;
+            done;
+            echo 'OESDB OK ✓'
       containers:
-      - image: quay.io/opsmxpublic/ubi8-oes-audit-client:v4.1.2-rc4
+      - image: quay.io/opsmxpublic/ubi8-oes-audit-client:v4.1.2-rc5
         imagePullPolicy: IfNotPresent
         name: oes-audit-client
         env:
@@ -5689,7 +5719,7 @@ spec:
           name: standard-error-codes-config
         name: standard-error-conf
 ---
-# Source: isdargo/templates/oes-audit/oes-audit-service.yaml
+# Source: isdargo/templates/oes-audit/oes-auditservice-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -5698,7 +5728,7 @@ metadata:
     app: oes
     component: auditservice
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
   name: oes-audit-service
 spec:
@@ -5718,11 +5748,23 @@ spec:
         app: oes
         component: auditservice
         heritage: "Helm"
-        release: "isd-ap"
+        release: "isd"
         chart: "isdargo-4.1.1"
     spec:
+      initContainers:
+      - name: db-check
+        image: quay.io/opsmxpublic/pgchecker:v1
+        command:
+          - sh
+          - -c
+          - |
+            echo 'Waiting for OES-DB to become ready...'
+            until printf "." && nc -z -w 2 oes-db 5432; do
+               sleep 2;
+            done;
+            echo 'OESDB OK ✓'
       containers:
-      - image: quay.io/opsmxpublic/ubi8-oes-audit-service:v4.1.2-rc4
+      - image: quay.io/opsmxpublic/ubi8-oes-audit-service:v4.1.2-rc5
         imagePullPolicy: IfNotPresent
         name: oes-audit
         env:
@@ -5790,7 +5832,7 @@ metadata:
     app: oes
     component: autopilot
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
 spec:
   replicas: 1
@@ -5804,7 +5846,7 @@ spec:
         app: oes
         component: autopilot
         heritage: "Helm"
-        release: "isd-ap"
+        release: "isd"
         chart: "isdargo-4.1.1"
       annotations:
         configmap/checksum: 44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a
@@ -5839,10 +5881,18 @@ spec:
           name: standard-error-conf
       initContainers:
       - name: db-check
-        image: quay.io/opsmxpublic/postgres:9.6.5
-        command: ['/bin/bash', '-c', "sleep 30;echo Waiting for oes-db to be up and running; pg_isready -h oes-db -p 5432 && echo PostgreSQL DB is ready to receive connections"]
+        image: quay.io/opsmxpublic/pgchecker:v1
+        command:
+          - sh
+          - -c
+          - |
+            echo 'Waiting for OES-DB to become ready...'
+            until printf "." && nc -z -w 2 oes-db 5432; do
+               sleep 2;
+            done;
+            echo 'OESDB OK ✓'
       containers:
-      - image: quay.io/opsmxpublic/ubi8-oes-autopilot:v4.1.2-rc4
+      - image: quay.io/opsmxpublic/ubi8-oes-autopilot:v4.1.2-rc5
         imagePullPolicy: IfNotPresent
         name: oes-autopilot
         env:
@@ -5897,7 +5947,7 @@ metadata:
     app: oes
     component: dashboard
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
   name: oes-dashboard
 spec:
@@ -5918,11 +5968,11 @@ spec:
         app: oes
         component: dashboard
         heritage: "Helm"
-        release: "isd-ap"
+        release: "isd"
         chart: "isdargo-4.1.1"
     spec:
       containers:
-      - image: quay.io/opsmxpublic/ubi8-oes-dashboard:v4.1.2-rc4
+      - image: quay.io/opsmxpublic/ubi8-oes-dashboard:v4.1.2-rc5
         name: oes-dashboard
         env:
         - name: JAVA_OPTS
@@ -5980,7 +6030,7 @@ metadata:
     app: oes
     component: datascience
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
   name: oes-datascience
 spec:
@@ -6000,11 +6050,23 @@ spec:
         app: oes
         component: datascience
         heritage: "Helm"
-        release: "isd-ap"
+        release: "isd"
         chart: "isdargo-4.1.1"
     spec:
+      initContainers:
+      - name: db-check
+        image: quay.io/opsmxpublic/pgchecker:v1
+        command:
+          - sh
+          - -c
+          - |
+            echo 'Waiting for OES-DB to become ready...'
+            until printf "." && nc -z -w 2 oes-db 5432; do
+               sleep 2;
+            done;
+            echo 'OESDB OK ✓'
       containers:
-      - image: quay.io/opsmxpublic/ubi8-oes-datascience:v4.1.2-rc4
+      - image: quay.io/opsmxpublic/ubi8-oes-datascience:v4.1.2-rc5
         imagePullPolicy: IfNotPresent
         name: oes-datascience
         env:
@@ -6043,7 +6105,7 @@ metadata:
     app: oes
     component: gate
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
   name: oes-gate
 spec:
@@ -6063,11 +6125,11 @@ spec:
         app: oes
         component: gate
         heritage: "Helm"
-        release: "isd-ap"
+        release: "isd"
         chart: "isdargo-4.1.1"
     spec:
       containers:
-      - image: quay.io/opsmxpublic/ubi8-gate:v4.1.2-rc4
+      - image: quay.io/opsmxpublic/ubi8-gate:v4.1.2-rc5
         name: oes-gate
         env:
         - name: spring_profiles_active
@@ -6117,7 +6179,7 @@ metadata:
     app: oes
     component: platform
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
   name: oes-platform
 spec:
@@ -6138,15 +6200,23 @@ spec:
         app: oes
         component: platform
         heritage: "Helm"
-        release: "isd-ap"
+        release: "isd"
         chart: "isdargo-4.1.1"
     spec:
       initContainers:
       - name: db-check
-        image: quay.io/opsmxpublic/postgres:9.6.5
-        command: ['/bin/bash', '-c', "sleep 30;echo Waiting for oes-db to be up and running; pg_isready -h oes-db -p 5432 && echo PostgreSQL DB is ready to receive connections"]
+        image: quay.io/opsmxpublic/pgchecker:v1
+        command:
+          - sh
+          - -c
+          - |
+            echo 'Waiting for OES-DB to become ready...'
+            until printf "." && nc -z -w 2 oes-db 5432; do
+               sleep 2;
+            done;
+            echo 'OESDB OK ✓'
       containers:
-      - image: quay.io/opsmxpublic/ubi8-oes-platform:v4.1.2-rc4
+      - image: quay.io/opsmxpublic/ubi8-oes-platform:v4.1.2-rc5
         name: oes-platform
         env:
         - name: JAVA_OPTS
@@ -6206,7 +6276,7 @@ metadata:
     app: oes
     component: sapor
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
   name: oes-sapor
 spec:
@@ -6227,15 +6297,23 @@ spec:
         app: oes
         component: sapor
         heritage: "Helm"
-        release: "isd-ap"
+        release: "isd"
         chart: "isdargo-4.1.1"
     spec:
       initContainers:
       - name: db-check
-        image: quay.io/opsmxpublic/postgres:9.6.5
-        command: ['/bin/bash', '-c', "sleep 30;echo Waiting for oes-db to be up and running; pg_isready -h oes-db -p 5432 && echo PostgreSQL DB is ready to receive connections"]
+        image: quay.io/opsmxpublic/pgchecker:v1
+        command:
+          - sh
+          - -c
+          - |
+            echo 'Waiting for OES-DB to become ready...'
+            until printf "." && nc -z -w 2 oes-db 5432; do
+               sleep 2;
+            done;
+            echo 'OESDB OK ✓'
       containers:
-      - image: quay.io/opsmxpublic/ubi8-oes-sapor:v4.1.2-rc4
+      - image: quay.io/opsmxpublic/ubi8-oes-sapor:v4.1.2-rc5
         name: oes-sapor
         env:
         - name: JAVA_OPTS
@@ -6309,7 +6387,7 @@ metadata:
     app: oes
     component: ui
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
   name: oes-ui
 spec:
@@ -6326,11 +6404,11 @@ spec:
         app: oes
         component: ui
         heritage: "Helm"
-        release: "isd-ap"
+        release: "isd"
         chart: "isdargo-4.1.1"
     spec:
       containers:
-      - image: quay.io/opsmxpublic/ubi8-oes-ui:v4.1.2-rc4
+      - image: quay.io/opsmxpublic/ubi8-oes-ui:v4.1.2-rc5
         name: oes-ui
         env:
         - name: JAVA_OPTS
@@ -6350,13 +6428,13 @@ spec:
           subPath: nginx-ap-only.conf
         readinessProbe:
           tcpSocket:
-            port: 8080
+            port: 8093
           initialDelaySeconds: 15
           periodSeconds: 5
         livenessProbe:
           httpGet:
             path: /ui/indexl.html
-            port: 8080
+            port: 8093
           initialDelaySeconds: 15
           periodSeconds: 5
       volumes:
@@ -6377,7 +6455,7 @@ metadata:
     app: oes
     component: visibility
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
   name: oes-visibility
 spec:
@@ -6398,15 +6476,23 @@ spec:
         app: oes
         component: visibility
         heritage: "Helm"
-        release: "isd-ap"
+        release: "isd"
         chart: "isdargo-4.1.1"
     spec:
       initContainers:
       - name: db-check
-        image: quay.io/opsmxpublic/postgres:9.6.5
-        command: ['/bin/bash', '-c', "sleep 30;echo Waiting for oes-db to be up and running; pg_isready -h oes-db -p 5432 && echo PostgreSQL DB is ready to receive connections"]
+        image: quay.io/opsmxpublic/pgchecker:v1
+        command:
+          - sh
+          - -c
+          - |
+            echo 'Waiting for OES-DB to become ready...'
+            until printf "." && nc -z -w 2 oes-db 5432; do
+               sleep 2;
+            done;
+            echo 'OESDB OK ✓'
       containers:
-      - image: quay.io/opsmxpublic/ubi8-oes-visibility:v4.1.2-rc4
+      - image: quay.io/opsmxpublic/ubi8-oes-visibility:v4.1.2-rc5
         name: oes-visibility
         env:
         - name: JAVA_OPTS
@@ -6467,7 +6553,7 @@ metadata:
     app: oes
     component: rabbitmq
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
   name: rabbitmq
 spec:
@@ -6483,7 +6569,7 @@ spec:
         app: oes
         component: rabbitmq
         heritage: "Helm"
-        release: "isd-ap"
+        release: "isd"
         chart: "isdargo-4.1.1"
     spec:
       containers:
@@ -6505,37 +6591,37 @@ spec:
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: isd-ap-redis-master
+  name: isd-redis-master
   labels:
     app: redis
     chart: redis-10.5.3
-    release: isd-ap
+    release: isd
     heritage: Helm
 spec:
   selector:
     matchLabels:
       app: redis
-      release: isd-ap
+      release: isd
       role: master
-  serviceName: isd-ap-redis-headless
+  serviceName: isd-redis-headless
   template:
     metadata:
       labels:
         app: redis
         chart: redis-10.5.3
-        release: isd-ap
+        release: isd
         role: master
       annotations:
-        checksum/health: 26718fbb3321624a9e896d1961c287babbdd45cb124739fca5817703be465b98
-        checksum/configmap: 44b704e1f1bcb7894d875eff96cab31013c9578f7cc7075c10c89e692b857110
-        checksum/secret: b52af1d75196fd29b077438ab1d7fa49839715856c197ad0d03a7ec4764d4cce
+        checksum/health: 36567aac6587929dc97be63c28c0aa1ec58d167572f3e5f191536195dc588d15
+        checksum/configmap: 42a460f87c190197092321f0ae70720d271a2f6738150858f02b13ca057dae95
+        checksum/secret: 92c3542fca96bee16e081be3a51ac49fa2ad66360cd283b768155ca7bae80c9e
         moniker.spinnaker.io/application: spin
     spec:      
       securityContext:
         fsGroup: 1001
       serviceAccountName: "default"
       containers:
-      - name: isd-ap-redis
+      - name: isd-redis
         image: "quay.io/opsmxpublic/bitnami-redis:5.0.7-debian-10-r0"
         imagePullPolicy: "IfNotPresent"
         securityContext:
@@ -6566,7 +6652,7 @@ spec:
         - name: REDIS_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: isd-ap-redis
+              name: isd-redis
               key: redis-password
         - name: REDIS_PORT
           value: "6379"
@@ -6610,11 +6696,11 @@ spec:
       volumes:
       - name: health
         configMap:
-          name: isd-ap-redis-health
+          name: isd-redis-health
           defaultMode: 0755
       - name: config
         configMap:
-          name: isd-ap-redis
+          name: isd-redis
       - name: redis-tmp-conf
         emptyDir: {}
   volumeClaimTemplates:
@@ -6622,7 +6708,7 @@ spec:
         name: redis-data
         labels:
           app: redis
-          release: isd-ap
+          release: isd
           heritage: Helm
           component: master
       spec:
@@ -6644,7 +6730,7 @@ metadata:
     app: oes
     component: db
     heritage: "Helm"
-    release: "isd-ap"
+    release: "isd"
     chart: "isdargo-4.1.1"
   name: oes-db
 spec:
@@ -6662,7 +6748,7 @@ spec:
         app: oes
         component: db
         heritage: "Helm"
-        release: "isd-ap"
+        release: "isd"
         chart: "isdargo-4.1.1"
     spec:
       containers:
@@ -6728,11 +6814,11 @@ spec:
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: isd-ap-minio-make-bucket-job
+  name: isd-minio-make-bucket-job
   labels:
     app: minio-make-bucket-job
     chart: minio-8.0.9
-    release: isd-ap
+    release: isd
     heritage: Helm
   annotations:
     "helm.sh/hook": post-install,post-upgrade
@@ -6742,7 +6828,7 @@ spec:
     metadata:
       labels:
         app: minio-job
-        release: isd-ap
+        release: isd
     spec:
       restartPolicy: OnFailure      
       volumes:
@@ -6750,10 +6836,10 @@ spec:
           projected:
             sources:
             - configMap:
-                name: isd-ap-minio
+                name: isd-minio
             - secret:
-                name: isd-ap-minio
-      serviceAccountName: "isd-ap-minio"
+                name: isd-minio
+      serviceAccountName: "isd-minio"
       containers:
       - name: minio-mc
         image: "minio/mc:RELEASE.2020-11-25T23-04-07Z"
@@ -6761,7 +6847,7 @@ spec:
         command: ["/bin/sh", "/config/initialize"]
         env:
           - name: MINIO_ENDPOINT
-            value: isd-ap-minio
+            value: isd-minio
           - name: MINIO_PORT
             value: "9000"
         volumeMounts:
