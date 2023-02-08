@@ -13,7 +13,7 @@ metadata:
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-application-controller
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: application-controller
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -23,11 +23,11 @@ apiVersion: v1
 kind: ServiceAccount
 automountServiceAccountToken: true
 metadata:
-  name: isd-argo-argocd-applicationset-controller
+  name: isdargo-argocd-applicationset-controller
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-applicationset-controller
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: applicationset-controller
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -41,7 +41,7 @@ metadata:
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-notifications-controller
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: notifications-controller
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -51,11 +51,11 @@ apiVersion: v1
 kind: ServiceAccount
 automountServiceAccountToken: true
 metadata:
-  name: isd-argo-argocd-repo-server
+  name: isdargo-argocd-repo-server
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-repo-server
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: repo-server
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -69,7 +69,7 @@ metadata:
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-server
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: server
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -83,7 +83,7 @@ metadata:
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-dex-server
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: dex-server
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -92,12 +92,12 @@ metadata:
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: isd-argo-argo-rollouts
+  name: isdargo-argo-rollouts
   labels:
     app.kubernetes.io/component: rollouts-controller
     helm.sh/chart: argo-rollouts-2.21.1
     app.kubernetes.io/name: argo-rollouts
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/version: "v1.3.1"
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argo-rollouts
@@ -106,12 +106,12 @@ metadata:
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: isd-argo-argo-rollouts-dashboard
+  name: isdargo-argo-rollouts-dashboard
   labels:
     app.kubernetes.io/component: rollouts-dashboard
     helm.sh/chart: argo-rollouts-2.21.1
     app.kubernetes.io/name: argo-rollouts
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/version: "v1.3.1"
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argo-rollouts
@@ -124,30 +124,30 @@ metadata:
     app: fluent-bit
     chart: fluent-bit-2.8.2
     heritage: Helm
-    release: isd-argo
-  name: isd-argo-fluent-bit
+    release: isdargo
+  name: isdargo-fluent-bit
 ---
 # Source: isdargo/charts/minio/templates/post-install-prometheus-metrics-serviceaccount.yaml
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: isd-argo-minio-update-prometheus-secret
+  name: isdargo-minio-update-prometheus-secret
   labels:
     app: minio-update-prometheus-secret
     chart: minio-8.0.9
-    release: isd-argo
+    release: isdargo
     heritage: Helm
 ---
 # Source: isdargo/charts/minio/templates/serviceaccount.yaml
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: "isd-argo-minio"
+  name: "isdargo-minio"
   namespace: "opsmx-argo"
   labels:
     app: minio
     chart: minio-8.0.9
-    release: "isd-argo"
+    release: "isdargo"
 ---
 # Source: isdargo/charts/prometheus/templates/alertmanager/serviceaccount.yaml
 apiVersion: v1
@@ -156,10 +156,10 @@ metadata:
   labels:
     component: "alertmanager"
     app: prometheus
-    release: isd-argo
+    release: isdargo
     chart: prometheus-11.16.2
     heritage: Helm
-  name: isd-argo-prometheus-alertmanager
+  name: isdargo-prometheus-alertmanager
   namespace: opsmx-argo
   annotations:
     {}
@@ -171,10 +171,10 @@ metadata:
   labels:
     component: "node-exporter"
     app: prometheus
-    release: isd-argo
+    release: isdargo
     chart: prometheus-11.16.2
     heritage: Helm
-  name: isd-argo-prometheus-node-exporter
+  name: isdargo-prometheus-node-exporter
   namespace: opsmx-argo
   annotations:
     {}
@@ -186,10 +186,10 @@ metadata:
   labels:
     component: "server"
     app: prometheus
-    release: isd-argo
+    release: isdargo
     chart: prometheus-11.16.2
     heritage: Helm
-  name: isd-argo-prometheus-server
+  name: isdargo-prometheus-server
   namespace: opsmx-argo
   annotations:
     {}
@@ -220,7 +220,7 @@ metadata:
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-notifications-controller
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: notifications-controller
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -237,7 +237,7 @@ metadata:
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-secret
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: server
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -252,7 +252,7 @@ metadata:
     app.kubernetes.io/component: rollouts-controller
     helm.sh/chart: argo-rollouts-2.21.1
     app.kubernetes.io/name: argo-rollouts
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/version: "v1.3.1"
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argo-rollouts
@@ -263,12 +263,12 @@ stringData:
 apiVersion: v1
 kind: Secret
 metadata:
-  name: "isd-argo-fluent-bit-es-tls-secret"
+  name: "isdargo-fluent-bit-es-tls-secret"
   labels:
     app: fluent-bit
     chart: fluent-bit-2.8.2
     heritage: Helm
-    release: isd-argo
+    release: isdargo
 type: Opaque
 data:
   es-tls-ca.crt: ""
@@ -277,11 +277,11 @@ data:
 apiVersion: v1
 kind: Secret
 metadata:
-  name: isd-argo-minio
+  name: isdargo-minio
   labels:
     app: minio
     chart: minio-8.0.9
-    release: isd-argo
+    release: isdargo
     heritage: Helm
 type: Opaque
 data:
@@ -296,7 +296,7 @@ metadata:
   labels:
     app: openldap
     chart: openldap-1.2.3
-    release: isd-argo
+    release: isdargo
     heritage: Helm
 type: Opaque
 data:
@@ -307,11 +307,11 @@ data:
 apiVersion: v1
 kind: Secret
 metadata:
-  name: isd-argo-redis
+  name: isdargo-redis
   labels:
     app: redis
     chart: redis-10.5.3
-    release: "isd-argo"
+    release: "isdargo"
     heritage: "Helm"
 type: Opaque
 data:
@@ -344,7 +344,7 @@ metadata:
     app: oes
     component: carina
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: oes-carina-config
 ---
@@ -389,7 +389,7 @@ metadata:
     app: oes
     component: auditclient
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: oes-audit-client-config
 ---
@@ -438,7 +438,7 @@ metadata:
     app: oes
     component: auditservice
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: oes-audit-service-config
 ---
@@ -485,7 +485,7 @@ stringData:
     #storage configuration
     storage.type =db_storage
     #storage.type =object_storage
-    #storage.endpoint=http://isd-argo-minio:9000
+    #storage.endpoint=http://isdargo-minio:9000
     #storage.accesskey = spinnakeradmin
     #storage.secretkey = spinnakeradmin
     #storage.region= us-east-1
@@ -503,7 +503,7 @@ metadata:
     app: oes
     component: autopilot
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
 ---
 # Source: isdargo/templates/oes-datascience/oes-datascience-secret.yaml
@@ -523,7 +523,7 @@ stringData:
        # Only accept True or False
     
     OBJECT_STORAGE:
-          ENDPOINT: http://isd-argo-minio:9000
+          ENDPOINT: http://isdargo-minio:9000
           BUCKET_NAME: autopilot
     POSTGRES:
           USERNAME: 'postgres'
@@ -606,7 +606,7 @@ stringData:
       mode: session
     google: {}
     redis:
-      connection: redis://:password@isd-argo-redis-master:6379
+      connection: redis://:password@isdargo-redis-master:6379
     server:
       session:
         timeoutInSeconds: 7200
@@ -653,7 +653,7 @@ metadata:
     app: oes
     component: gate
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
 ---
 # Source: isdargo/templates/oes-gate/oes-gate-secret.yaml
@@ -678,7 +678,7 @@ stringData:
         password: 'networks123'
     ldap.managerPassword: 'opsmxadmin123'
     redis:
-        connection: redis://:password@isd-argo-redis-master:6379
+        connection: redis://:password@isdargo-redis-master:6379
     #datasource.url: jdbc:postgresql://oes-db:5432/visibilitydb
     #postgres.password: 'networks123'
     #postgres.username: 'postgres'
@@ -757,7 +757,7 @@ metadata:
     app: oes
     component: platform
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
 ---
 # Source: isdargo/templates/oes-sapor/oes-sapor-secret.yaml
@@ -874,7 +874,7 @@ metadata:
     app: oes
     component: sapor
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
 ---
 # Source: isdargo/templates/oes-visibility/oes-visibility-secret.yaml
@@ -979,7 +979,7 @@ metadata:
     app: oes
     component: visibility
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
 ---
 # Source: isdargo/templates/sampleapps/sample-repo-ssh.yaml
@@ -1024,7 +1024,7 @@ metadata:
   name: bootstrap
   labels:
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
 ---
 # Source: isdargo/templates/secrets/opsmx-profile.yaml
@@ -1067,7 +1067,7 @@ metadata:
   name: sapor-bootstrap
   labels:
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
 ---
 # Source: isdargo/templates/secrets/secret.yaml
@@ -1089,7 +1089,7 @@ metadata:
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-cm
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: server
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -1117,7 +1117,7 @@ metadata:
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-cmd-params-cm
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: server
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -1129,14 +1129,14 @@ data:
   controller.self.heal.timeout.seconds: "5"
   controller.status.processors: "20"
   otlp.address: ""
-  redis.server: isd-argo-argocd-redis:6379
-  repo.server: isd-argo-argocd-repo-server:8081
+  redis.server: isdargo-argocd-redis:6379
+  repo.server: isdargo-argocd-repo-server:8081
   reposerver.log.format: text
   reposerver.log.level: info
   reposerver.parallelism.limit: "0"
   server.basehref: /
   server.content.security.policy: default-src * 'unsafe-inline'
-  server.dex.server: https://isd-argo-argocd-dex-server:5556
+  server.dex.server: https://isdargo-argocd-dex-server:5556
   server.dex.server.strict.tls: "false"
   server.disable.auth: "false"
   server.enable.gzip: "false"
@@ -1156,7 +1156,7 @@ metadata:
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-gpg-keys-cm
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
 ---
@@ -1168,7 +1168,7 @@ metadata:
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-notifications-controller
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: notifications-controller
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -1456,7 +1456,7 @@ metadata:
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-rbac-cm
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: server
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -1473,7 +1473,7 @@ metadata:
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-ssh-known-hosts-cm
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: server
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -1497,7 +1497,7 @@ metadata:
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-tls-certs-cm
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: server
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -1511,7 +1511,7 @@ metadata:
     app.kubernetes.io/component: rollouts-controller
     helm.sh/chart: argo-rollouts-2.21.1
     app.kubernetes.io/name: argo-rollouts
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/version: "v1.3.1"
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argo-rollouts
@@ -1788,12 +1788,12 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: isd-argo-fluent-bit-config
+  name: isdargo-fluent-bit-config
   labels:
     app: fluent-bit
     chart: fluent-bit-2.8.2
     heritage: Helm
-    release: isd-argo
+    release: isdargo
 data:
   fluent-bit-service.conf: |
     [SERVICE]
@@ -1857,12 +1857,12 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: isd-argo-fluent-bit-test
+  name: isdargo-fluent-bit-test
   labels:
-    app: isd-argo-fluent-bit
+    app: isdargo-fluent-bit
     chart: "fluent-bit-2.8.2"
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
 data:
   run.sh: |-
     @test "Test Elasticssearch Indices" {
@@ -1892,11 +1892,11 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: isd-argo-minio
+  name: isdargo-minio
   labels:
     app: minio
     chart: minio-8.0.9
-    release: isd-argo
+    release: isdargo
     heritage: Helm
 data:
   initialize: |-
@@ -2010,7 +2010,7 @@ metadata:
   labels:
     app: openldap
     chart: openldap-1.2.3
-    release: isd-argo
+    release: isdargo
     heritage: Helm
 data:
   01-memberof.ldif: |-
@@ -2127,7 +2127,7 @@ metadata:
   labels:
     app: openldap
     chart: openldap-1.2.3
-    release: isd-argo
+    release: isdargo
     heritage: Helm
 data:
   LDAP_BACKEND: hdb
@@ -2144,10 +2144,10 @@ metadata:
   labels:
     component: "alertmanager"
     app: prometheus
-    release: isd-argo
+    release: isdargo
     chart: prometheus-11.16.2
     heritage: Helm
-  name: isd-argo-prometheus-alertmanager
+  name: isdargo-prometheus-alertmanager
   namespace: opsmx-argo
 data:
   alertmanager.yml: |
@@ -2167,10 +2167,10 @@ metadata:
   labels:
     component: "server"
     app: prometheus
-    release: isd-argo
+    release: isdargo
     chart: prometheus-11.16.2
     heritage: Helm
-  name: isd-argo-prometheus-server
+  name: isdargo-prometheus-server
   namespace: opsmx-argo
 data:
   alerting_rules.yml: |
@@ -3062,7 +3062,7 @@ metadata:
   labels:
     component: "server"
     app: prometheus
-    release: isd-argo
+    release: isdargo
     chart: prometheus-11.16.2
     heritage: Helm
   namespace: opsmx-argo
@@ -3071,12 +3071,12 @@ metadata:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: isd-argo-redis
+  name: isdargo-redis
   labels:
     app: redis
     chart: redis-10.5.3
     heritage: Helm
-    release: isd-argo
+    release: isdargo
 data:
   redis.conf: |-
     # User-supplied configuration:
@@ -3098,12 +3098,12 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: isd-argo-redis-health
+  name: isdargo-redis-health
   labels:
     app: redis
     chart: redis-10.5.3
     heritage: Helm
-    release: isd-argo
+    release: isdargo
 data:
   ping_readiness_local.sh: |-
     response=$(
@@ -3177,7 +3177,7 @@ metadata:
   name: oes-autoconfigure
   labels:
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
 data:
   datasource-api.sh: |-
@@ -3199,7 +3199,7 @@ data:
             type: argocd
             enabled: true
             config:
-              url: http://isd-argo-argocd-server:80
+              url: http://isdargo-argocd-server:80
               insecure: true
               credentials:
                 type: bearer
@@ -3260,11 +3260,11 @@ data:
        ## create Elasticsearch datasource
        curl -s --location --request POST 'http://oes-platform:8095/platformservice/v6/datasource' \
        --header 'Content-Type: application/json' \
-       --data-raw '{"datasourceType":"ELASTICSEARCH","name":"opsmx-elastic","configurationFields":{"endPoint":"http://elasticsearch-master:9200","username":"","password":"","kibanaEndPoint":"http://isd-argo-kibana:5601","kibanaUsername":"","kibanaPassword":""}}'
+       --data-raw '{"datasourceType":"ELASTICSEARCH","name":"opsmx-elastic","configurationFields":{"endPoint":"http://elasticsearch-master:9200","username":"","password":"","kibanaEndPoint":"http://isdargo-kibana:5601","kibanaUsername":"","kibanaPassword":""}}'
        ## Create prometheus datasource
        curl -s --location --request POST 'http://oes-platform:8095/platformservice/v6/datasource' \
        --header 'Content-Type: application/json' \
-       --data-raw '{"datasourceType":"PROMETHEUS","name":"opsmx-prom","configurationFields":{"endPoint":"http://isd-argo-prometheus-server:80","username":"","password":""}}'
+       --data-raw '{"datasourceType":"PROMETHEUS","name":"opsmx-prom","configurationFields":{"endPoint":"http://isdargo-prometheus-server:80","username":"","password":""}}'
          sleep 10
          ## create LOG template
        curl -s --location --header "x-spinnaker-user:admin"  --request POST 'http://oes-autopilot:8090/autopilot/api/v5/global/logTemplate' \
@@ -3430,7 +3430,7 @@ metadata:
     agent.opsmx.com/name: controller1
     agent.opsmx.com/role: controller
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
 data:
   configFile: |
@@ -3494,7 +3494,7 @@ metadata:
     app: oes
     component: dashboard
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
 ---
 # Source: isdargo/templates/oes-ui/oes-ui-configmap.yaml
@@ -6949,7 +6949,7 @@ metadata:
     app: oes
     component: ui
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
 ---
 # Source: isdargo/templates/oes-ui/oes-ui-nginxconf.yaml
@@ -7029,7 +7029,7 @@ metadata:
     app: oes
     component: ui
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
 ---
 # Source: isdargo/templates/vela/vela-configmap.yaml
@@ -7048,18 +7048,18 @@ metadata:
     app: oes
     component: vela
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
 ---
 # Source: isdargo/charts/minio/templates/pvc.yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: isd-argo-minio
+  name: isdargo-minio
   labels:
     app: minio
     chart: minio-8.0.9
-    release: isd-argo
+    release: isdargo
     heritage: Helm
 spec:
   accessModes:
@@ -7076,7 +7076,7 @@ metadata:
   labels:
     app: openldap
     chart: openldap-1.2.3
-    release: isd-argo
+    release: isdargo
     heritage: Helm
 spec:
   accessModes:
@@ -7092,10 +7092,10 @@ metadata:
   labels:
     component: "alertmanager"
     app: prometheus
-    release: isd-argo
+    release: isdargo
     chart: prometheus-11.16.2
     heritage: Helm
-  name: isd-argo-prometheus-alertmanager
+  name: isdargo-prometheus-alertmanager
   namespace: opsmx-argo
 spec:
   accessModes:
@@ -7111,10 +7111,10 @@ metadata:
   labels:
     component: "server"
     app: prometheus
-    release: isd-argo
+    release: isdargo
     chart: prometheus-11.16.2
     heritage: Helm
-  name: isd-argo-prometheus-server
+  name: isdargo-prometheus-server
   namespace: opsmx-argo
 spec:
   accessModes:
@@ -30941,11 +30941,11 @@ spec:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: isd-argo-argocd-application-controller
+  name: isdargo-argocd-application-controller
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-application-controller
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: application-controller
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -30965,11 +30965,11 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: isd-argo-argocd-repo-server
+  name: isdargo-argocd-repo-server
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-repo-server
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: repo-server
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -30989,11 +30989,11 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: isd-argo-argocd-server
+  name: isdargo-argocd-server
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-server
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: server
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -31033,13 +31033,13 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: isd-argo-argo-rollouts-aggregate-to-view
+  name: isdargo-argo-rollouts-aggregate-to-view
   labels:
     rbac.authorization.k8s.io/aggregate-to-view: "true"
     app.kubernetes.io/component: rollouts-controller
     helm.sh/chart: argo-rollouts-2.21.1
     app.kubernetes.io/name: argo-rollouts
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/version: "v1.3.1"
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argo-rollouts
@@ -31062,13 +31062,13 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: isd-argo-argo-rollouts-aggregate-to-edit
+  name: isdargo-argo-rollouts-aggregate-to-edit
   labels:
     rbac.authorization.k8s.io/aggregate-to-edit: "true"
     app.kubernetes.io/component: rollouts-controller
     helm.sh/chart: argo-rollouts-2.21.1
     app.kubernetes.io/name: argo-rollouts
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/version: "v1.3.1"
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argo-rollouts
@@ -31097,13 +31097,13 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: isd-argo-argo-rollouts-aggregate-to-admin
+  name: isdargo-argo-rollouts-aggregate-to-admin
   labels:
     rbac.authorization.k8s.io/aggregate-to-admin: "true"
     app.kubernetes.io/component: rollouts-controller
     helm.sh/chart: argo-rollouts-2.21.1
     app.kubernetes.io/name: argo-rollouts
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/version: "v1.3.1"
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argo-rollouts
@@ -31132,12 +31132,12 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: isd-argo-argo-rollouts
+  name: isdargo-argo-rollouts
   labels:
     app.kubernetes.io/component: rollouts-controller
     helm.sh/chart: argo-rollouts-2.21.1
     app.kubernetes.io/name: argo-rollouts
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/version: "v1.3.1"
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argo-rollouts
@@ -31363,12 +31363,12 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: isd-argo-argo-rollouts-dashboard
+  name: isdargo-argo-rollouts-dashboard
   labels:
     app.kubernetes.io/component: rollouts-dashboard
     helm.sh/chart: argo-rollouts-2.21.1
     app.kubernetes.io/name: argo-rollouts
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/version: "v1.3.1"
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argo-rollouts
@@ -31441,8 +31441,8 @@ metadata:
     app: fluent-bit
     chart: fluent-bit-2.8.2
     heritage: Helm
-    release: isd-argo
-  name: isd-argo-fluent-bit
+    release: isdargo
+  name: isdargo-fluent-bit
 rules:
   - apiGroups:
       - ""
@@ -31458,10 +31458,10 @@ metadata:
   labels:
     component: "alertmanager"
     app: prometheus
-    release: isd-argo
+    release: isdargo
     chart: prometheus-11.16.2
     heritage: Helm
-  name: isd-argo-prometheus-alertmanager
+  name: isdargo-prometheus-alertmanager
 rules:
   []
 ---
@@ -31472,10 +31472,10 @@ metadata:
   labels:
     component: "server"
     app: prometheus
-    release: isd-argo
+    release: isdargo
     chart: prometheus-11.16.2
     heritage: Helm
-  name: isd-argo-prometheus-server
+  name: isdargo-prometheus-server
 rules:
   - apiGroups:
       - ""
@@ -31511,18 +31511,18 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: isd-argo-argocd-application-controller
+  name: isdargo-argocd-application-controller
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-application-controller
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: application-controller
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: isd-argo-argocd-application-controller
+  name: isdargo-argocd-application-controller
 subjects:
 - kind: ServiceAccount
   name: argocd-application-controller
@@ -31532,39 +31532,39 @@ subjects:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: isd-argo-argocd-repo-server
+  name: isdargo-argocd-repo-server
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-repo-server
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: repo-server
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: isd-argo-argocd-repo-server
+  name: isdargo-argocd-repo-server
 subjects:
 - kind: ServiceAccount
-  name: isd-argo-argocd-repo-server
+  name: isdargo-argocd-repo-server
   namespace: opsmx-argo
 ---
 # Source: isdargo/charts/argo-cd/templates/argocd-server/clusterrolebinding.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: isd-argo-argocd-server
+  name: isdargo-argocd-server
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-server
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: server
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: isd-argo-argocd-server
+  name: isdargo-argocd-server
 subjects:
 - kind: ServiceAccount
   name: argocd-server
@@ -31574,44 +31574,44 @@ subjects:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: isd-argo-argo-rollouts
+  name: isdargo-argo-rollouts
   labels:
     app.kubernetes.io/component: rollouts-controller
     helm.sh/chart: argo-rollouts-2.21.1
     app.kubernetes.io/name: argo-rollouts
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/version: "v1.3.1"
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argo-rollouts
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: isd-argo-argo-rollouts
+  name: isdargo-argo-rollouts
 subjects:
 - kind: ServiceAccount
-  name: isd-argo-argo-rollouts
+  name: isdargo-argo-rollouts
   namespace: opsmx-argo
 ---
 # Source: isdargo/charts/argo-rollouts/templates/dashboard/clusterrolebinding.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: isd-argo-argo-rollouts-dashboard
+  name: isdargo-argo-rollouts-dashboard
   labels:
     app.kubernetes.io/component: rollouts-dashboard
     helm.sh/chart: argo-rollouts-2.21.1
     app.kubernetes.io/name: argo-rollouts
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/version: "v1.3.1"
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argo-rollouts
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: isd-argo-argo-rollouts-dashboard
+  name: isdargo-argo-rollouts-dashboard
 subjects:
 - kind: ServiceAccount
-  name: isd-argo-argo-rollouts-dashboard
+  name: isdargo-argo-rollouts-dashboard
   namespace: opsmx-argo
 ---
 # Source: isdargo/charts/fluent-bit/templates/cluster-rolebinding.yaml
@@ -31622,15 +31622,15 @@ metadata:
     app: fluent-bit
     chart: fluent-bit-2.8.2
     heritage: Helm
-    release: isd-argo
-  name: isd-argo-fluent-bit
+    release: isdargo
+  name: isdargo-fluent-bit
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: isd-argo-fluent-bit
+  name: isdargo-fluent-bit
 subjects:
   - kind: ServiceAccount
-    name: isd-argo-fluent-bit
+    name: isdargo-fluent-bit
     namespace: opsmx-argo
 ---
 # Source: isdargo/charts/prometheus/templates/alertmanager/clusterrolebinding.yaml
@@ -31640,18 +31640,18 @@ metadata:
   labels:
     component: "alertmanager"
     app: prometheus
-    release: isd-argo
+    release: isdargo
     chart: prometheus-11.16.2
     heritage: Helm
-  name: isd-argo-prometheus-alertmanager
+  name: isdargo-prometheus-alertmanager
 subjects:
   - kind: ServiceAccount
-    name: isd-argo-prometheus-alertmanager
+    name: isdargo-prometheus-alertmanager
     namespace: opsmx-argo
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: isd-argo-prometheus-alertmanager
+  name: isdargo-prometheus-alertmanager
 ---
 # Source: isdargo/charts/prometheus/templates/server/clusterrolebinding.yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -31660,18 +31660,18 @@ metadata:
   labels:
     component: "server"
     app: prometheus
-    release: isd-argo
+    release: isdargo
     chart: prometheus-11.16.2
     heritage: Helm
-  name: isd-argo-prometheus-server
+  name: isdargo-prometheus-server
 subjects:
   - kind: ServiceAccount
-    name: isd-argo-prometheus-server
+    name: isdargo-prometheus-server
     namespace: opsmx-argo
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: isd-argo-prometheus-server
+  name: isdargo-prometheus-server
 ---
 # Source: isdargo/templates/autoconfigure-carin-and-agent/autoconfigserviceaccount.yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -31691,11 +31691,11 @@ subjects:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: isd-argo-argocd-application-controller
+  name: isdargo-argocd-application-controller
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-application-controller
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: application-controller
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -31734,11 +31734,11 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: isd-argo-argocd-applicationset-controller
+  name: isdargo-argocd-applicationset-controller
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-applicationset-controller
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: applicationset-controller
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -31827,11 +31827,11 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: isd-argo-argocd-notifications-controller
+  name: isdargo-argocd-notifications-controller
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-notifications-controller
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: notifications-controller
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -31876,11 +31876,11 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: isd-argo-argocd-repo-server
+  name: isdargo-argocd-repo-server
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-repo-server
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: repo-server
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -31890,11 +31890,11 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: isd-argo-argocd-server
+  name: isdargo-argocd-server
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-server
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: server
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -31939,11 +31939,11 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: isd-argo-argocd-dex-server
+  name: isdargo-argocd-dex-server
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-dex-server
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: dex-server
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -31962,11 +31962,11 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: isd-argo-minio-update-prometheus-secret
+  name: isdargo-minio-update-prometheus-secret
   labels:
     app: minio-update-prometheus-secret
     chart: minio-8.0.9
-    release: isd-argo
+    release: isdargo
     heritage: Helm
 rules:
   - apiGroups:
@@ -31979,7 +31979,7 @@ rules:
       - update
       - patch
     resourceNames:
-      - isd-argo-minio-prometheus
+      - isdargo-minio-prometheus
   - apiGroups:
       - ""
     resources:
@@ -31993,7 +31993,7 @@ rules:
     verbs:
       - get
     resourceNames:
-      - isd-argo-minio
+      - isdargo-minio
 ---
 # Source: isdargo/templates/forwarder/create-controller-secret.yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -32031,18 +32031,18 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: isd-argo-argocd-application-controller
+  name: isdargo-argocd-application-controller
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-application-controller
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: application-controller
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: isd-argo-argocd-application-controller
+  name: isdargo-argocd-application-controller
 subjects:
 - kind: ServiceAccount
   name: argocd-application-controller
@@ -32052,39 +32052,39 @@ subjects:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: isd-argo-argocd-applicationset-controller
+  name: isdargo-argocd-applicationset-controller
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-applicationset-controller
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: applicationset-controller
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: isd-argo-argocd-applicationset-controller
+  name: isdargo-argocd-applicationset-controller
 subjects:
   - kind: ServiceAccount
-    name: isd-argo-argocd-applicationset-controller
+    name: isdargo-argocd-applicationset-controller
     namespace: opsmx-argo
 ---
 # Source: isdargo/charts/argo-cd/templates/argocd-notifications/rolebinding.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: isd-argo-argocd-notifications-controller
+  name: isdargo-argocd-notifications-controller
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-notifications-controller
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: notifications-controller
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: isd-argo-argocd-notifications-controller
+  name: isdargo-argocd-notifications-controller
 subjects:
   - kind: ServiceAccount
     name: argocd-notifications-controller
@@ -32094,39 +32094,39 @@ subjects:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: isd-argo-argocd-repo-server
+  name: isdargo-argocd-repo-server
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-repo-server
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: repo-server
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: isd-argo-argocd-repo-server
+  name: isdargo-argocd-repo-server
 subjects:
 - kind: ServiceAccount
-  name: isd-argo-argocd-repo-server
+  name: isdargo-argocd-repo-server
   namespace: opsmx-argo
 ---
 # Source: isdargo/charts/argo-cd/templates/argocd-server/rolebinding.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: isd-argo-argocd-server
+  name: isdargo-argocd-server
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-server
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: server
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: isd-argo-argocd-server
+  name: isdargo-argocd-server
 subjects:
 - kind: ServiceAccount
   name: argocd-server
@@ -32136,18 +32136,18 @@ subjects:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: isd-argo-argocd-dex-server
+  name: isdargo-argocd-dex-server
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-dex-server
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: dex-server
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: isd-argo-argocd-dex-server
+  name: isdargo-argocd-dex-server
 subjects:
 - kind: ServiceAccount
   name: argocd-dex-server
@@ -32157,19 +32157,19 @@ subjects:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: isd-argo-minio-update-prometheus-secret
+  name: isdargo-minio-update-prometheus-secret
   labels:
     app: minio-update-prometheus-secret
     chart: minio-8.0.9
-    release: isd-argo
+    release: isdargo
     heritage: Helm
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: isd-argo-minio-update-prometheus-secret
+  name: isdargo-minio-update-prometheus-secret
 subjects:
   - kind: ServiceAccount
-    name: isd-argo-minio-update-prometheus-secret
+    name: isdargo-minio-update-prometheus-secret
     namespace: "opsmx-argo"
 ---
 # Source: isdargo/templates/forwarder/create-controller-secret.yaml
@@ -32202,11 +32202,11 @@ roleRef:
 apiVersion: v1
 kind: Service
 metadata:
-  name: isd-argo-argocd-applicationset-controller
+  name: isdargo-argocd-applicationset-controller
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-applicationset-controller
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: applicationset-controller
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -32217,7 +32217,7 @@ spec:
     targetPort: webhook
   selector:
     app.kubernetes.io/name: argocd-applicationset-controller
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
 ---
 # Source: isdargo/charts/argo-cd/templates/argocd-repo-server/service.yaml
 apiVersion: v1
@@ -32226,11 +32226,11 @@ metadata:
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-repo-server
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: repo-server
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
-  name: isd-argo-argocd-repo-server
+  name: isdargo-argocd-repo-server
 spec:
   ports:
   - name: https-repo-server
@@ -32239,17 +32239,17 @@ spec:
     targetPort: repo-server
   selector:
     app.kubernetes.io/name: argocd-repo-server
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
 ---
 # Source: isdargo/charts/argo-cd/templates/argocd-server/service.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: isd-argo-argocd-server
+  name: isdargo-argocd-server
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-server
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: server
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -32266,17 +32266,17 @@ spec:
     targetPort: server
   selector:
     app.kubernetes.io/name: argocd-server
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
 ---
 # Source: isdargo/charts/argo-cd/templates/dex/service.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: isd-argo-argocd-dex-server
+  name: isdargo-argocd-dex-server
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-dex-server
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: dex-server
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -32292,17 +32292,17 @@ spec:
     targetPort: grpc
   selector:
     app.kubernetes.io/name: argocd-dex-server
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
 ---
 # Source: isdargo/charts/argo-cd/templates/redis/service.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: isd-argo-argocd-redis
+  name: isdargo-argocd-redis
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-redis
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: redis
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -32313,18 +32313,18 @@ spec:
     targetPort: 6379
   selector:
     app.kubernetes.io/name: argocd-redis
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
 ---
 # Source: isdargo/charts/argo-rollouts/templates/dashboard/service.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: isd-argo-argo-rollouts-dashboard
+  name: isdargo-argo-rollouts-dashboard
   labels:
     app.kubernetes.io/component: rollouts-dashboard
     helm.sh/chart: argo-rollouts-2.21.1
     app.kubernetes.io/name: argo-rollouts
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/version: "v1.3.1"
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argo-rollouts
@@ -32339,7 +32339,7 @@ spec:
   selector:
     app.kubernetes.io/component: rollouts-dashboard
     app.kubernetes.io/name: argo-rollouts
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
 ---
 # Source: isdargo/charts/elasticsearch/templates/service.yaml
 kind: Service
@@ -32348,7 +32348,7 @@ metadata:
   name: elasticsearch-master
   labels:
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "elasticsearch"
     app: "elasticsearch-master"
   annotations:
@@ -32357,7 +32357,7 @@ spec:
   type: ClusterIP
   selector:
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "elasticsearch"
     app: "elasticsearch-master"
   ports:
@@ -32375,7 +32375,7 @@ metadata:
   name: elasticsearch-master-headless
   labels:
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "elasticsearch"
     app: "elasticsearch-master"
   annotations:
@@ -32396,10 +32396,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: isd-argo-kibana
+  name: isdargo-kibana
   labels:
     app: kibana
-    release: "isd-argo"
+    release: "isdargo"
     heritage: Helm
 spec:
   type: ClusterIP
@@ -32410,17 +32410,17 @@ spec:
       targetPort: 5601
   selector:
     app: kibana
-    release: "isd-argo"
+    release: "isdargo"
 ---
 # Source: isdargo/charts/minio/templates/service.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: isd-argo-minio
+  name: isdargo-minio
   labels:
     app: minio
     chart: minio-8.0.9
-    release: isd-argo
+    release: isdargo
     heritage: Helm
 spec:
   type: ClusterIP
@@ -32431,7 +32431,7 @@ spec:
       targetPort: 9000
   selector:
     app: minio
-    release: isd-argo
+    release: isdargo
 ---
 # Source: isdargo/charts/openldap/templates/service.yaml
 apiVersion: v1
@@ -32441,7 +32441,7 @@ metadata:
   labels:
     app: openldap
     chart: openldap-1.2.3
-    release: isd-argo
+    release: isdargo
     heritage: Helm
 spec:
   ports:
@@ -32455,7 +32455,7 @@ spec:
       targetPort: ssl-ldap-port
   selector:
     app: openldap
-    release: isd-argo
+    release: isdargo
   type: ClusterIP
 ---
 # Source: isdargo/charts/prometheus/templates/alertmanager/service.yaml
@@ -32465,10 +32465,10 @@ metadata:
   labels:
     component: "alertmanager"
     app: prometheus
-    release: isd-argo
+    release: isdargo
     chart: prometheus-11.16.2
     heritage: Helm
-  name: isd-argo-prometheus-alertmanager
+  name: isdargo-prometheus-alertmanager
   namespace: opsmx-argo
 spec:
   ports:
@@ -32479,7 +32479,7 @@ spec:
   selector:
     component: "alertmanager"
     app: prometheus
-    release: isd-argo
+    release: isdargo
   sessionAffinity: None
   type: "ClusterIP"
 ---
@@ -32492,10 +32492,10 @@ metadata:
   labels:
     component: "node-exporter"
     app: prometheus
-    release: isd-argo
+    release: isdargo
     chart: prometheus-11.16.2
     heritage: Helm
-  name: isd-argo-prometheus-node-exporter
+  name: isdargo-prometheus-node-exporter
   namespace: opsmx-argo
 spec:
   clusterIP: None
@@ -32507,7 +32507,7 @@ spec:
   selector:
     component: "node-exporter"
     app: prometheus
-    release: isd-argo
+    release: isdargo
   type: "ClusterIP"
 ---
 # Source: isdargo/charts/prometheus/templates/server/service.yaml
@@ -32517,10 +32517,10 @@ metadata:
   labels:
     component: "server"
     app: prometheus
-    release: isd-argo
+    release: isdargo
     chart: prometheus-11.16.2
     heritage: Helm
-  name: isd-argo-prometheus-server
+  name: isdargo-prometheus-server
   namespace: opsmx-argo
 spec:
   ports:
@@ -32531,7 +32531,7 @@ spec:
   selector:
     component: "server"
     app: prometheus
-    release: isd-argo
+    release: isdargo
   sessionAffinity: None
   type: "ClusterIP"
 ---
@@ -32539,11 +32539,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: isd-argo-redis-headless
+  name: isdargo-redis-headless
   labels:
     app: redis
     chart: redis-10.5.3
-    release: isd-argo
+    release: isdargo
     heritage: Helm
 spec:
   type: ClusterIP
@@ -32554,17 +32554,17 @@ spec:
     targetPort: redis
   selector:
     app: redis
-    release: isd-argo
+    release: isdargo
 ---
 # Source: isdargo/charts/redis/templates/redis-master-svc.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: isd-argo-redis-master
+  name: isdargo-redis-master
   labels:
     app: redis
     chart: redis-10.5.3
-    release: isd-argo
+    release: isdargo
     heritage: Helm
 spec:
   type: ClusterIP
@@ -32574,7 +32574,7 @@ spec:
     targetPort: redis
   selector:
     app: redis
-    release: isd-argo
+    release: isdargo
     role: master
 ---
 # Source: isdargo/templates/carina/carina-instance-service.yaml
@@ -32585,7 +32585,7 @@ metadata:
     app: oes
     component: carina-instance
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: carina-instance
 spec:
@@ -32607,7 +32607,7 @@ metadata:
     app: oes
     component: carina
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: oes-carina
 spec:
@@ -32634,7 +32634,7 @@ metadata:
     agent.opsmx.com/name: controller1
     agent.opsmx.com/role: controller
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
 spec:
   selector:
@@ -32660,7 +32660,7 @@ metadata:
     agent.opsmx.com/name: controller1
     agent.opsmx.com/role: controller
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
 spec:
   selector:
@@ -32679,7 +32679,7 @@ metadata:
     agent.opsmx.com/name: controller1
     agent.opsmx.com/role: controller
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
 spec:
   selector:
@@ -32698,7 +32698,7 @@ metadata:
     app: oes
     component: auditclient
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: oes-audit-client
 spec:
@@ -32720,7 +32720,7 @@ metadata:
     app: oes
     component: auditservice
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: oes-audit-service
 spec:
@@ -32742,7 +32742,7 @@ metadata:
     app: oes
     component: autopilot
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: oes-autopilot
 spec:
@@ -32766,7 +32766,7 @@ metadata:
     app: oes
     component: dashboard
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: oes-dashboard
 spec:
@@ -32788,7 +32788,7 @@ metadata:
     app: oes
     component: datascience
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: oes-datascience
 spec:
@@ -32810,7 +32810,7 @@ metadata:
     app: oes
     component: db
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: oes-db
 spec:
@@ -32832,7 +32832,7 @@ metadata:
     app: oes
     component: gate
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: oes-gate
 spec:
@@ -32860,7 +32860,7 @@ metadata:
     app: oes
     component: platform
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: oes-platform
 spec:
@@ -32882,7 +32882,7 @@ metadata:
     app: oes
     component: sapor
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: oes-sapor
 spec:
@@ -32903,7 +32903,7 @@ metadata:
     app: oes
     component: ui
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: oes-ui
 spec:
@@ -32927,7 +32927,7 @@ metadata:
     app: oes
     component: visibility
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: oes-visibility
 spec:
@@ -32948,7 +32948,7 @@ metadata:
   name: opa
   labels:
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
 spec:
   selector:
@@ -32967,7 +32967,7 @@ metadata:
     app: oes
     component: rabbitmq
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: rabbitmq-service
 spec:
@@ -32993,7 +32993,7 @@ metadata:
     app: oes
     component: vela
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: vela
 spec:
@@ -33011,30 +33011,30 @@ spec:
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: isd-argo-fluent-bit
+  name: isdargo-fluent-bit
   labels:
     app: fluent-bit
     chart: fluent-bit-2.8.2
     heritage: Helm
-    release: isd-argo
+    release: isdargo
 spec:
   selector:
     matchLabels:
       app: fluent-bit
-      release: isd-argo
+      release: isdargo
   updateStrategy:
     type: RollingUpdate
   template:
     metadata:
       labels:
         app: fluent-bit
-        release: isd-argo
+        release: isdargo
       annotations:
-        checksum/config: 61f7a65fad17178883ef1e924f9d4d0d9d1b53900276db533e7c1dd1e7596e17
+        checksum/config: cb1ec6fd4cd260151e718bed7f37ec558e1df2747eb936f9974d7632e0a1e617
     spec:
       hostNetwork: false
       dnsPolicy: ClusterFirst
-      serviceAccountName: isd-argo-fluent-bit
+      serviceAccountName: isdargo-fluent-bit
       containers:
       - name: fluent-bit
         image: "fluent/fluent-bit:1.3.2"
@@ -33076,7 +33076,7 @@ spec:
           path: /var/lib/docker/containers
       - name: config
         configMap:
-          name: isd-argo-fluent-bit-config
+          name: isdargo-fluent-bit-config
 ---
 # Source: isdargo/charts/prometheus/templates/node-exporter/daemonset.yaml
 apiVersion: apps/v1
@@ -33085,17 +33085,17 @@ metadata:
   labels:
     component: "node-exporter"
     app: prometheus
-    release: isd-argo
+    release: isdargo
     chart: prometheus-11.16.2
     heritage: Helm
-  name: isd-argo-prometheus-node-exporter
+  name: isdargo-prometheus-node-exporter
   namespace: opsmx-argo
 spec:
   selector:
     matchLabels:
       component: "node-exporter"
       app: prometheus
-      release: isd-argo
+      release: isdargo
   updateStrategy:
     type: RollingUpdate
   template:
@@ -33103,11 +33103,11 @@ spec:
       labels:
         component: "node-exporter"
         app: prometheus
-        release: isd-argo
+        release: isdargo
         chart: prometheus-11.16.2
         heritage: Helm
     spec:
-      serviceAccountName: isd-argo-prometheus-node-exporter
+      serviceAccountName: isdargo-prometheus-node-exporter
       containers:
         - name: prometheus-node-exporter
           image: "prom/node-exporter:v1.0.1"
@@ -33143,11 +33143,11 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: isd-argo-argocd-applicationset-controller
+  name: isdargo-argocd-applicationset-controller
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-applicationset-controller
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: applicationset-controller
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -33157,7 +33157,7 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: argocd-applicationset-controller
-      app.kubernetes.io/instance: isd-argo
+      app.kubernetes.io/instance: isdargo
   template:
     metadata:
       annotations:
@@ -33167,12 +33167,12 @@ spec:
       labels:
         helm.sh/chart: argo-cd-5.16.6
         app.kubernetes.io/name: argocd-applicationset-controller
-        app.kubernetes.io/instance: isd-argo
+        app.kubernetes.io/instance: isdargo
         app.kubernetes.io/component: applicationset-controller
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/part-of: argocd
     spec:
-      serviceAccountName: isd-argo-argocd-applicationset-controller
+      serviceAccountName: isdargo-argocd-applicationset-controller
       containers:
         - name: applicationset-controller
           image: quay.io/argoproj/argocd:v2.5.4
@@ -33180,7 +33180,7 @@ spec:
           command:
             - entrypoint.sh
             - argocd-applicationset-controller
-            - --argocd-repo-server=isd-argo-argocd-repo-server:8081
+            - --argocd-repo-server=isdargo-argocd-repo-server:8081
             - --enable-leader-election=false
             - --metrics-addr=:8080
             - --probe-addr=:8081
@@ -33246,11 +33246,11 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: isd-argo-argocd-notifications-controller
+  name: isdargo-argocd-notifications-controller
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-notifications-controller
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: notifications-controller
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -33262,7 +33262,7 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: argocd-notifications-controller
-      app.kubernetes.io/instance: isd-argo
+      app.kubernetes.io/instance: isdargo
   template:
     metadata:
       annotations:
@@ -33272,7 +33272,7 @@ spec:
       labels:
         helm.sh/chart: argo-cd-5.16.6
         app.kubernetes.io/name: argocd-notifications-controller
-        app.kubernetes.io/instance: isd-argo
+        app.kubernetes.io/instance: isdargo
         app.kubernetes.io/component: notifications-controller
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/part-of: argocd
@@ -33288,7 +33288,7 @@ spec:
             - --logformat=text
             - --metrics-port=9001
             - --namespace=opsmx-argo
-            - --argocd-repo-server=isd-argo-argocd-repo-server:8081
+            - --argocd-repo-server=isdargo-argocd-repo-server:8081
           ports:
           - name: metrics
             containerPort: 9001
@@ -33330,11 +33330,11 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: isd-argo-argocd-repo-server
+  name: isdargo-argocd-repo-server
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-repo-server
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: repo-server
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -33344,18 +33344,18 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: argocd-repo-server
-      app.kubernetes.io/instance: isd-argo
+      app.kubernetes.io/instance: isdargo
   template:
     metadata:
       annotations:
-        checksum/cmd-params: e25a95684960e44e1564537992c705f5d27e0f47d995db76af9da15dbf5f2873
+        checksum/cmd-params: 7736c7c2574ada2137ab8359133516a04b193faf590096ac405f30495e3df5c0
         prometheus.io/path: "/metrics"
         prometheus.io/port: "8084"
         prometheus.io/scrape: "true"
       labels:
         helm.sh/chart: argo-cd-5.16.6
         app.kubernetes.io/name: argocd-repo-server
-        app.kubernetes.io/instance: isd-argo
+        app.kubernetes.io/instance: isdargo
         app.kubernetes.io/component: repo-server
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/part-of: argocd
@@ -33445,13 +33445,13 @@ spec:
           - name: REDIS_USERNAME
             valueFrom:
               secretKeyRef:
-                name: isd-argo-argocd-redis
+                name: isdargo-argocd-redis
                 key: redis-username
                 optional: true
           - name: REDIS_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: isd-argo-argocd-redis
+                name: isdargo-argocd-redis
                 key: redis-password
                 optional: true
           - name: ARGOCD_DEFAULT_CACHE_EXPIRATION
@@ -33564,7 +33564,7 @@ spec:
           runAsNonRoot: true
           seccompProfile:
             type: RuntimeDefault
-      serviceAccountName: isd-argo-argocd-repo-server
+      serviceAccountName: isdargo-argocd-repo-server
       volumes:
       - emptyDir: {}
         name: custom-tools
@@ -33636,11 +33636,11 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: isd-argo-argocd-server
+  name: isdargo-argocd-server
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-server
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: server
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -33650,18 +33650,18 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: argocd-server
-      app.kubernetes.io/instance: isd-argo
+      app.kubernetes.io/instance: isdargo
   template:
     metadata:
       annotations:
-        checksum/cmd-params: e25a95684960e44e1564537992c705f5d27e0f47d995db76af9da15dbf5f2873
+        checksum/cmd-params: 7736c7c2574ada2137ab8359133516a04b193faf590096ac405f30495e3df5c0
         prometheus.io/path: "/metrics"
         prometheus.io/port: "8083"
         prometheus.io/scrape: "true"
       labels:
         helm.sh/chart: argo-cd-5.16.6
         app.kubernetes.io/name: argocd-server
-        app.kubernetes.io/instance: isd-argo
+        app.kubernetes.io/instance: isdargo
         app.kubernetes.io/component: server
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/part-of: argocd
@@ -33839,13 +33839,13 @@ spec:
           - name: REDIS_USERNAME
             valueFrom:
               secretKeyRef:
-                name: isd-argo-argocd-redis
+                name: isdargo-argocd-redis
                 key: redis-username
                 optional: true
           - name: REDIS_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: isd-argo-argocd-redis
+                name: isdargo-argocd-redis
                 key: redis-password
                 optional: true
           - name: ARGOCD_DEFAULT_CACHE_EXPIRATION
@@ -33987,11 +33987,11 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: isd-argo-argocd-dex-server
+  name: isdargo-argocd-dex-server
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-dex-server
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: dex-server
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -34001,18 +34001,18 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: argocd-dex-server
-      app.kubernetes.io/instance: isd-argo
+      app.kubernetes.io/instance: isdargo
   template:
     metadata:
       annotations:
-        checksum/cmd-params: e25a95684960e44e1564537992c705f5d27e0f47d995db76af9da15dbf5f2873
+        checksum/cmd-params: 7736c7c2574ada2137ab8359133516a04b193faf590096ac405f30495e3df5c0
         prometheus.io/path: "/metrics"
         prometheus.io/port: "5558"
         prometheus.io/scrape: "true"
       labels:
         helm.sh/chart: argo-cd-5.16.6
         app.kubernetes.io/name: argocd-dex-server
-        app.kubernetes.io/instance: isd-argo
+        app.kubernetes.io/instance: isdargo
         app.kubernetes.io/component: dex-server
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/part-of: argocd
@@ -34112,11 +34112,11 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: isd-argo-argocd-redis
+  name: isdargo-argocd-redis
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-redis
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: redis
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -34131,7 +34131,7 @@ spec:
       labels:
         helm.sh/chart: argo-cd-5.16.6
         app.kubernetes.io/name: argocd-redis
-        app.kubernetes.io/instance: isd-argo
+        app.kubernetes.io/instance: isdargo
         app.kubernetes.io/component: redis
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/part-of: argocd
@@ -34167,12 +34167,12 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: isd-argo-argo-rollouts
+  name: isdargo-argo-rollouts
   labels:
     app.kubernetes.io/component: rollouts-controller
     helm.sh/chart: argo-rollouts-2.21.1
     app.kubernetes.io/name: argo-rollouts
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/version: "v1.3.1"
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argo-rollouts
@@ -34181,7 +34181,7 @@ spec:
     matchLabels:
       app.kubernetes.io/component: rollouts-controller
       app.kubernetes.io/name: argo-rollouts
-      app.kubernetes.io/instance: isd-argo
+      app.kubernetes.io/instance: isdargo
   strategy:
     type: Recreate
   replicas: 1
@@ -34193,10 +34193,10 @@ spec:
         prometheus.io/scrape: "true"
       labels:
         app.kubernetes.io/name: argo-rollouts
-        app.kubernetes.io/instance: isd-argo
+        app.kubernetes.io/instance: isdargo
         app.kubernetes.io/component: rollouts-controller
     spec:
-      serviceAccountName: isd-argo-argo-rollouts
+      serviceAccountName: isdargo-argo-rollouts
       containers:
       - image: "quay.io/argoproj/argo-rollouts:v1.3.1"
         args:
@@ -34236,12 +34236,12 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: isd-argo-argo-rollouts-dashboard
+  name: isdargo-argo-rollouts-dashboard
   labels:
     app.kubernetes.io/component: rollouts-dashboard
     helm.sh/chart: argo-rollouts-2.21.1
     app.kubernetes.io/name: argo-rollouts
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/version: "v1.3.1"
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argo-rollouts
@@ -34249,7 +34249,7 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: argo-rollouts
-      app.kubernetes.io/instance: isd-argo
+      app.kubernetes.io/instance: isdargo
       app.kubernetes.io/component: rollouts-dashboard
   strategy:
     type: Recreate
@@ -34262,10 +34262,10 @@ spec:
         prometheus.io/scrape: "true"
       labels:
         app.kubernetes.io/name: argo-rollouts
-        app.kubernetes.io/instance: isd-argo
+        app.kubernetes.io/instance: isdargo
         app.kubernetes.io/component: rollouts-dashboard
     spec:
-      serviceAccountName: isd-argo-argo-rollouts-dashboard
+      serviceAccountName: isdargo-argo-rollouts-dashboard
       containers:
       - image: "quay.io/argoproj/kubectl-argo-rollouts:v1.3.1"
         imagePullPolicy: IfNotPresent
@@ -34285,10 +34285,10 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: isd-argo-kibana
+  name: isdargo-kibana
   labels:
     app: kibana
-    release: "isd-argo"
+    release: "isdargo"
 spec:
   replicas: 1
   strategy:
@@ -34296,12 +34296,12 @@ spec:
   selector:
     matchLabels:
       app: kibana
-      release: "isd-argo"
+      release: "isdargo"
   template:
     metadata:
       labels:
         app: kibana
-        release: "isd-argo"
+        release: "isdargo"
       annotations:
         
     spec:
@@ -34373,11 +34373,11 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: isd-argo-minio
+  name: isdargo-minio
   labels:
     app: minio
     chart: minio-8.0.9
-    release: isd-argo
+    release: isdargo
     heritage: Helm
 spec:
   strategy:
@@ -34388,18 +34388,18 @@ spec:
   selector:
     matchLabels:
       app: minio
-      release: isd-argo
+      release: isdargo
   template:
     metadata:
-      name: isd-argo-minio
+      name: isdargo-minio
       labels:
         app: minio
-        release: isd-argo
+        release: isdargo
       annotations:
-        checksum/secrets: 9ae5d6a6739c6bbaf79b1c997a0d190b171501cdb16c5a90d0c8ffe4a756ba82
-        checksum/config: 681df17cd9a075008d85678856501accaee653b4e782563203802fd2eec4e4bf
+        checksum/secrets: 993ba833d03e29003982ec5b7d004aaa9a7d164736e2b6ced976df365a1c9485
+        checksum/config: d3b877f27d04bced1d3f8fe537f8d5894e8f021af2d36445664a8298a1661920
     spec:
-      serviceAccountName: "isd-argo-minio"
+      serviceAccountName: "isdargo-minio"
       securityContext:
         runAsUser: 1000
         runAsGroup: 1000
@@ -34422,12 +34422,12 @@ spec:
             - name: MINIO_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
-                  name: isd-argo-minio
+                  name: isdargo-minio
                   key: accesskey
             - name: MINIO_SECRET_KEY
               valueFrom:
                 secretKeyRef:
-                  name: isd-argo-minio
+                  name: isdargo-minio
                   key: secretkey
           resources:
             requests:
@@ -34435,10 +34435,10 @@ spec:
       volumes:
         - name: export
           persistentVolumeClaim:
-            claimName: isd-argo-minio
+            claimName: isdargo-minio
         - name: minio-user
           secret:
-            secretName: isd-argo-minio
+            secretName: isdargo-minio
 ---
 # Source: isdargo/charts/openldap/templates/deployment.yaml
 apiVersion: apps/v1
@@ -34450,22 +34450,22 @@ metadata:
   labels:
     app: openldap
     chart: openldap-1.2.3
-    release: isd-argo
+    release: isdargo
     heritage: Helm
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: openldap
-      release: isd-argo
+      release: isdargo
   template:
     metadata:
       annotations:
-        checksum/configmap-env: 0718878006cda2bc01986943f220184e515e681e677f93b7e623dfb312d6ec1e
-        checksum/configmap-customldif: b70af704a162c526a36aaaf50d1550b31b17ae2e4ea53e39366dddc4943ec715
+        checksum/configmap-env: ae06d60df157d415b3e64c4948bd65754b5b1f659ce64bc9811c5d8e2efc8654
+        checksum/configmap-customldif: ca7f52cf013cee4e94b4b9237ce22dd48d51b7d1e4f2e4d31efe0f8ae4baedea
       labels:
         app: openldap
-        release: isd-argo
+        release: isdargo
     spec:
       initContainers:
       - name: openldap-init-ldif
@@ -34545,28 +34545,28 @@ metadata:
   labels:
     component: "alertmanager"
     app: prometheus
-    release: isd-argo
+    release: isdargo
     chart: prometheus-11.16.2
     heritage: Helm
-  name: isd-argo-prometheus-alertmanager
+  name: isdargo-prometheus-alertmanager
   namespace: opsmx-argo
 spec:
   selector:
     matchLabels:
       component: "alertmanager"
       app: prometheus
-      release: isd-argo
+      release: isdargo
   replicas: 1
   template:
     metadata:
       labels:
         component: "alertmanager"
         app: prometheus
-        release: isd-argo
+        release: isdargo
         chart: prometheus-11.16.2
         heritage: Helm
     spec:
-      serviceAccountName: isd-argo-prometheus-alertmanager
+      serviceAccountName: isdargo-prometheus-alertmanager
       containers:
         - name: prometheus-alertmanager
           image: "prom/alertmanager:v0.21.0"
@@ -34619,10 +34619,10 @@ spec:
       volumes:
         - name: config-volume
           configMap:
-            name: isd-argo-prometheus-alertmanager
+            name: isdargo-prometheus-alertmanager
         - name: storage-volume
           persistentVolumeClaim:
-            claimName: isd-argo-prometheus-alertmanager
+            claimName: isdargo-prometheus-alertmanager
 ---
 # Source: isdargo/charts/prometheus/templates/server/deploy.yaml
 apiVersion: apps/v1
@@ -34631,28 +34631,28 @@ metadata:
   labels:
     component: "server"
     app: prometheus
-    release: isd-argo
+    release: isdargo
     chart: prometheus-11.16.2
     heritage: Helm
-  name: isd-argo-prometheus-server
+  name: isdargo-prometheus-server
   namespace: opsmx-argo
 spec:
   selector:
     matchLabels:
       component: "server"
       app: prometheus
-      release: isd-argo
+      release: isdargo
   replicas: 1
   template:
     metadata:
       labels:
         component: "server"
         app: prometheus
-        release: isd-argo
+        release: isdargo
         chart: prometheus-11.16.2
         heritage: Helm
     spec:
-      serviceAccountName: isd-argo-prometheus-server
+      serviceAccountName: isdargo-prometheus-server
       containers:
         - name: prometheus-server-configmap-reload
           image: "jimmidyson/configmap-reload:v0.4.0"
@@ -34723,10 +34723,10 @@ spec:
       volumes:
         - name: config-volume
           configMap:
-            name: isd-argo-prometheus-server
+            name: isdargo-prometheus-server
         - name: storage-volume
           persistentVolumeClaim:
-            claimName: isd-argo-prometheus-server
+            claimName: isdargo-prometheus-server
         - name: configmap-reload-spinnaker-alerts
           configMap:
             name: spinnaker-alerts
@@ -34745,7 +34745,7 @@ metadata:
     app: oes
     component: carina-instance
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: carina-instance
 spec:
@@ -34766,7 +34766,7 @@ spec:
         app: oes
         component: carina-instance
         heritage: "Helm"
-        release: "isd-argo"
+        release: "isdargo"
         chart: "isdargo-4.1.1"
       annotations:
     spec:
@@ -34795,7 +34795,7 @@ metadata:
     app: oes
     component: carina
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: oes-carina
 spec:
@@ -34816,7 +34816,7 @@ spec:
         app: oes
         component: carina
         heritage: "Helm"
-        release: "isd-argo"
+        release: "isdargo"
         chart: "isdargo-4.1.1"
       annotations:
         checksum/secret: fded78fb79f163122ee7400d331e474f1421c46e7b26570ece98a6ef0c014ddc
@@ -34873,7 +34873,7 @@ metadata:
     agent.opsmx.com/name: controller1
     agent.opsmx.com/role: controller
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
 spec:
   replicas: 1
@@ -34887,7 +34887,7 @@ spec:
         agent.opsmx.com/name: controller1
         agent.opsmx.com/role: controller
         heritage: "Helm"
-        release: "isd-argo"
+        release: "isdargo"
         chart: "isdargo-4.1.1"
       annotations:
         pullversion: "16"
@@ -34951,7 +34951,7 @@ metadata:
     app: oes
     component: auditclient
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: oes-audit-client
 spec:
@@ -34971,7 +34971,7 @@ spec:
         app: oes
         component: auditclient
         heritage: "Helm"
-        release: "isd-argo"
+        release: "isdargo"
         chart: "isdargo-4.1.1"
     spec:
       initContainers:
@@ -35052,7 +35052,7 @@ metadata:
     app: oes
     component: auditservice
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: oes-audit-service
 spec:
@@ -35072,7 +35072,7 @@ spec:
         app: oes
         component: auditservice
         heritage: "Helm"
-        release: "isd-argo"
+        release: "isdargo"
         chart: "isdargo-4.1.1"
     spec:
       initContainers:
@@ -35156,7 +35156,7 @@ metadata:
     app: oes
     component: autopilot
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
 spec:
   replicas: 1
@@ -35170,7 +35170,7 @@ spec:
         app: oes
         component: autopilot
         heritage: "Helm"
-        release: "isd-argo"
+        release: "isdargo"
         chart: "isdargo-4.1.1"
       annotations:
         configmap/checksum: 44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a
@@ -35271,7 +35271,7 @@ metadata:
     app: oes
     component: dashboard
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: oes-dashboard
 spec:
@@ -35292,7 +35292,7 @@ spec:
         app: oes
         component: dashboard
         heritage: "Helm"
-        release: "isd-argo"
+        release: "isdargo"
         chart: "isdargo-4.1.1"
     spec:
       containers:
@@ -35364,7 +35364,7 @@ metadata:
     app: oes
     component: datascience
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: oes-datascience
 spec:
@@ -35384,7 +35384,7 @@ spec:
         app: oes
         component: datascience
         heritage: "Helm"
-        release: "isd-argo"
+        release: "isdargo"
         chart: "isdargo-4.1.1"
     spec:
       initContainers:
@@ -35439,7 +35439,7 @@ metadata:
     app: oes
     component: gate
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: oes-gate
 spec:
@@ -35459,7 +35459,7 @@ spec:
         app: oes
         component: gate
         heritage: "Helm"
-        release: "isd-argo"
+        release: "isdargo"
         chart: "isdargo-4.1.1"
     spec:
       containers:
@@ -35523,7 +35523,7 @@ metadata:
     app: oes
     component: platform
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: oes-platform
 spec:
@@ -35544,7 +35544,7 @@ spec:
         app: oes
         component: platform
         heritage: "Helm"
-        release: "isd-argo"
+        release: "isdargo"
         chart: "isdargo-4.1.1"
     spec:
       initContainers:
@@ -35620,7 +35620,7 @@ metadata:
     app: oes
     component: sapor
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: oes-sapor
 spec:
@@ -35641,7 +35641,7 @@ spec:
         app: oes
         component: sapor
         heritage: "Helm"
-        release: "isd-argo"
+        release: "isdargo"
         chart: "isdargo-4.1.1"
     spec:
       initContainers:
@@ -35731,7 +35731,7 @@ metadata:
     app: oes
     component: ui
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: oes-ui
 spec:
@@ -35748,7 +35748,7 @@ spec:
         app: oes
         component: ui
         heritage: "Helm"
-        release: "isd-argo"
+        release: "isdargo"
         chart: "isdargo-4.1.1"
     spec:
       containers:
@@ -35799,7 +35799,7 @@ metadata:
     app: oes
     component: visibility
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: oes-visibility
 spec:
@@ -35820,7 +35820,7 @@ spec:
         app: oes
         component: visibility
         heritage: "Helm"
-        release: "isd-argo"
+        release: "isdargo"
         chart: "isdargo-4.1.1"
     spec:
       initContainers:
@@ -35897,7 +35897,7 @@ metadata:
     app: oes
     component: rabbitmq
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: rabbitmq
 spec:
@@ -35913,7 +35913,7 @@ spec:
         app: oes
         component: rabbitmq
         heritage: "Helm"
-        release: "isd-argo"
+        release: "isdargo"
         chart: "isdargo-4.1.1"
     spec:
       containers:
@@ -35939,7 +35939,7 @@ metadata:
     app: oes
     component: vela
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: vela
 spec:
@@ -35960,7 +35960,7 @@ spec:
         app: oes
         component: vela
         heritage: "Helm"
-        release: "isd-argo"
+        release: "isdargo"
         chart: "isdargo-4.1.1"
       annotations:
         checksum/secret: a990ce01e54e37afb27e95803a96fb3052a85df7955f6f42efceea10fc82f683
@@ -35996,11 +35996,11 @@ spec:
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: isd-argo-argocd-application-controller
+  name: isdargo-argocd-application-controller
   labels:
     helm.sh/chart: argo-cd-5.16.6
     app.kubernetes.io/name: argocd-application-controller
-    app.kubernetes.io/instance: isd-argo
+    app.kubernetes.io/instance: isdargo
     app.kubernetes.io/component: application-controller
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: argocd
@@ -36008,22 +36008,22 @@ spec:
   replicas: 1
   # TODO: Remove for breaking release as history limit cannot be patched
   revisionHistoryLimit: 5
-  serviceName: isd-argo-argocd-application-controller
+  serviceName: isdargo-argocd-application-controller
   selector:
     matchLabels:
       app.kubernetes.io/name: argocd-application-controller
-      app.kubernetes.io/instance: isd-argo
+      app.kubernetes.io/instance: isdargo
   template:
     metadata:
       annotations:
-        checksum/cmd-params: e25a95684960e44e1564537992c705f5d27e0f47d995db76af9da15dbf5f2873
+        checksum/cmd-params: 7736c7c2574ada2137ab8359133516a04b193faf590096ac405f30495e3df5c0
         prometheus.io/path: "/metrics"
         prometheus.io/port: "8082"
         prometheus.io/scrape: "true"
       labels:
         helm.sh/chart: argo-cd-5.16.6
         app.kubernetes.io/name: argocd-application-controller
-        app.kubernetes.io/instance: isd-argo
+        app.kubernetes.io/instance: isdargo
         app.kubernetes.io/component: application-controller
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/part-of: argocd
@@ -36142,13 +36142,13 @@ spec:
           - name: REDIS_USERNAME
             valueFrom:
               secretKeyRef:
-                name: isd-argo-argocd-redis
+                name: isdargo-argocd-redis
                 key: redis-username
                 optional: true
           - name: REDIS_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: isd-argo-argocd-redis
+                name: isdargo-argocd-redis
                 key: redis-password
                 optional: true
           - name: ARGOCD_DEFAULT_CACHE_EXPIRATION
@@ -36222,7 +36222,7 @@ metadata:
   name: elasticsearch-master
   labels:
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "elasticsearch"
     app: "elasticsearch-master"
   annotations:
@@ -36250,7 +36250,7 @@ spec:
       name: "elasticsearch-master"
       labels:
         heritage: "Helm"
-        release: "isd-argo"
+        release: "isdargo"
         chart: "elasticsearch"
         app: "elasticsearch-master"
         app: "elasticsearch-master"
@@ -36372,37 +36372,37 @@ spec:
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: isd-argo-redis-master
+  name: isdargo-redis-master
   labels:
     app: redis
     chart: redis-10.5.3
-    release: isd-argo
+    release: isdargo
     heritage: Helm
 spec:
   selector:
     matchLabels:
       app: redis
-      release: isd-argo
+      release: isdargo
       role: master
-  serviceName: isd-argo-redis-headless
+  serviceName: isdargo-redis-headless
   template:
     metadata:
       labels:
         app: redis
         chart: redis-10.5.3
-        release: isd-argo
+        release: isdargo
         role: master
       annotations:
-        checksum/health: 2089214313a81af522729a3d80f06c6ff14ae2263ef7e6ff6d96dceae572e5bc
-        checksum/configmap: 92ea03d4118b1949f3ae9b1ed9fbe035ee49159dbae8b0aca56b416600d32c5c
-        checksum/secret: 96b933a82b6b79bf8653cd161d4cefa32e4bebec216f27ee678296691e3b536d
+        checksum/health: b6b23d3fa7c10699f8bedeca9d467916bf06747a0d1b7ce5387c752b1531a607
+        checksum/configmap: f1c988e267e064e8ae9e7d8df589ca8158fdfb2be7f564af21444c037627f662
+        checksum/secret: f4e012715d34a72e0d9117223f1cbd80c9fa45dc5881057b5c5098a140a94530
         moniker.spinnaker.io/application: spin
     spec:      
       securityContext:
         fsGroup: 1001
       serviceAccountName: "default"
       containers:
-      - name: isd-argo-redis
+      - name: isdargo-redis
         image: "quay.io/opsmxpublic/bitnami-redis:5.0.7-debian-10-r0"
         imagePullPolicy: "IfNotPresent"
         securityContext:
@@ -36433,7 +36433,7 @@ spec:
         - name: REDIS_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: isd-argo-redis
+              name: isdargo-redis
               key: redis-password
         - name: REDIS_PORT
           value: "6379"
@@ -36477,11 +36477,11 @@ spec:
       volumes:
       - name: health
         configMap:
-          name: isd-argo-redis-health
+          name: isdargo-redis-health
           defaultMode: 0755
       - name: config
         configMap:
-          name: isd-argo-redis
+          name: isdargo-redis
       - name: redis-tmp-conf
         emptyDir: {}
   volumeClaimTemplates:
@@ -36489,7 +36489,7 @@ spec:
         name: redis-data
         labels:
           app: redis
-          release: isd-argo
+          release: isdargo
           heritage: Helm
           component: master
       spec:
@@ -36511,7 +36511,7 @@ metadata:
     app: oes
     component: db
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: oes-db
 spec:
@@ -36529,7 +36529,7 @@ spec:
         app: oes
         component: db
         heritage: "Helm"
-        release: "isd-argo"
+        release: "isdargo"
         chart: "isdargo-4.1.1"
     spec:
       containers:
@@ -36595,12 +36595,12 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: "isd-argo-fqaol-test"
+  name: "isdargo-dqava-test"
   annotations:
     "helm.sh/hook": test-success
 spec:
   containers:
-  - name: "isd-argo-oaizb-test"
+  - name: "isdargo-xrlrq-test"
     image: "docker.elastic.co/elasticsearch/elasticsearch:7.5.0"
     command:
       - "sh"
@@ -36614,12 +36614,12 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: isd-argo-fluent-bit-test
+  name: isdargo-fluent-bit-test
   labels:
-    app: isd-argo-fluent-bit
+    app: isdargo-fluent-bit
     chart: "fluent-bit-2.8.2"
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
   annotations:
     "helm.sh/hook": test-success
 spec:
@@ -36637,7 +36637,7 @@ spec:
       - mountPath: /tools
         name: tools
   containers:
-    - name: isd-argo-test
+    - name: isdargo-test
       image: "dwdraju/alpine-curl-jq"
       command: ["/tools/bats/bats", "-t", "/tests/run.sh"]
       volumeMounts:
@@ -36649,7 +36649,7 @@ spec:
   volumes:
   - name: tests
     configMap:
-      name: isd-argo-fluent-bit-test
+      name: isdargo-fluent-bit-test
   - name: tools
     emptyDir: {}
   restartPolicy: Never
@@ -36658,11 +36658,11 @@ spec:
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: isd-argo-minio-make-bucket-job
+  name: isdargo-minio-make-bucket-job
   labels:
     app: minio-make-bucket-job
     chart: minio-8.0.9
-    release: isd-argo
+    release: isdargo
     heritage: Helm
   annotations:
     "helm.sh/hook": post-install,post-upgrade
@@ -36672,7 +36672,7 @@ spec:
     metadata:
       labels:
         app: minio-job
-        release: isd-argo
+        release: isdargo
     spec:
       restartPolicy: OnFailure      
       volumes:
@@ -36680,10 +36680,10 @@ spec:
           projected:
             sources:
             - configMap:
-                name: isd-argo-minio
+                name: isdargo-minio
             - secret:
-                name: isd-argo-minio
-      serviceAccountName: "isd-argo-minio"
+                name: isdargo-minio
+      serviceAccountName: "isdargo-minio"
       containers:
       - name: minio-mc
         image: "minio/mc:RELEASE.2020-11-25T23-04-07Z"
@@ -36691,7 +36691,7 @@ spec:
         command: ["/bin/sh", "/config/initialize"]
         env:
           - name: MINIO_ENDPOINT
-            value: isd-argo-minio
+            value: isdargo-minio
           - name: MINIO_PORT
             value: "9000"
         volumeMounts:
@@ -36713,7 +36713,7 @@ metadata:
     app: oes
     autoconfig: oes
     heritage: "Helm"
-    release: "isd-argo"
+    release: "isdargo"
     chart: "isdargo-4.1.1"
   name: oes-autoconfigure
 spec:
@@ -36722,7 +36722,7 @@ spec:
       labels:
         app: oes
         heritage: "Helm"
-        release: "isd-argo"
+        release: "isdargo"
         chart: "isdargo-4.1.1"
     spec:
       serviceAccountName: oes-auto-configure-opsmx-argo
